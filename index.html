@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Norris Precision Manufacturing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header (Desktop Navigation) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="assests/logo-src.svg" alt="Norris Precision" onclick="window.location = '/'">
+      </div>
+
+      <div class="nav-container">
+        <div class="nav">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="product.html">Products</a>
+
+          <!-- Capabilities Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Capabilities</a>
+            <div class="dropdown-menu">
+              <!-- Now links directly to the machining section on manufacturing page -->
+              <a href="manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality-management">Quality Management</a>
+            </div>
+          </div>
+
+          <!-- Certifications Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Certifications</a>
+            <div class="dropdown-menu">
+              <a href="/quality-certs/as9100">AS9100</a>
+              <a href="/quality-certs/iso-9001">ISO 9001</a>
+              <a href="/quality-certs/nadcap">Nadcap</a>
+              <a href="/quality-certs/itar">ITAR</a>
+              <a href="/quality-certs/fda">FDA</a>
+            </div>
+          </div>
+
+          <!-- More Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">More</a>
+            <div class="dropdown-menu">
+              <a href="/careers">Careers</a>
+              <a href="/blog">Blog</a>
+              <a href="/contact">Contact</a>
+              <a href="/suppliers/terms">Suppliers: Terms &amp; Conditions</a>
+              <a href="/suppliers/quality-clauses">Suppliers: Quality Clauses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Advanced Precision Manufacturing Solutions</h1>
+        <p class="hero-subtitle">Setting the industry standard with high-precision components and assemblies for aerospace, defense, and medical applications.</p>
+        <div class="hero-buttons">
+          <!-- Clicking this scrolls to the capabilities section on this page -->
+          <a href="#capabilities" class="cta-btn">Explore Capabilities</a>
+          <a href="/contact" class="cta-btn outline">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+      <!-- Key Info Section -->
+      <section class="key-info">
+        <div class="key-info-grid">
+          <div class="key-info-item">
+            <i class="fas fa-cog key-info-icon"></i>
+            <h3>40+ Years</h3>
+            <p>Of specialized manufacturing expertise and innovation</p>
+          </div>
+          <div class="key-info-item">
+            <i class="fas fa-certificate key-info-icon"></i>
+            <h3>Industry Certified</h3>
+            <p>AS9100, ISO 9001, Nadcap, ITAR registered</p>
+          </div>
+          <div class="key-info-item">
+            <i class="fas fa-microchip key-info-icon"></i>
+            <h3>Advanced Technology</h3>
+            <p>State-of-the-art equipment and processes</p>
+          </div>
+        </div>
+      </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+      <div class="section-header">
+        <h2>Industries We Serve</h2>
+        <p>Delivering critical components and assemblies for demanding applications across multiple sectors</p>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-card">
+          <div class="industry-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <h3>Aerospace</h3>
+          <p>Flight-critical components meeting rigorous standards</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Defense</h3>
+          <p>Mission-critical hardware for defense systems</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <i class="fas fa-medkit"></i>
+          </div>
+          <h3>Medical</h3>
+          <p>FDA-compliant components for medical devices</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <i class="fas fa-satellite"></i>
+          </div>
+          <h3>Space</h3>
+          <p>Ultra-precise parts for space applications</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+      <div class="section-header">
+        <h2>Trusted By</h2>
+        <p>Industry leaders who trust our precision engineering.</p>
+      </div>
+      <div class="trusted-logos">
+        <img src="/assests/honeywell-logo.png" alt="Honeywell">
+        <img src="/assests/Aero Controlex.png" alt="Aerocontrollx">
+        <img src="/assests/Triumph -logo.jpg" alt="Triumph">
+      </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="capabilities-section">
+      <div class="section-header">
+        <h2>Our Core Capabilities</h2>
+        <p>Comprehensive manufacturing services with uncompromising quality and precision</p>
+      </div>
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <div class="capability-img machining-img"></div>
+          <div class="capability-content">
+            <h3>Precision Machining</h3>
+            <p>High-accuracy CNC machining for complex components.</p>
+            <ul class="capability-list">
+              <li>5-Axis CNC Machining</li>
+              <li>Swiss Turning</li>
+              <li>EDM</li>
+            </ul>
+            <!-- Navigate to the machining section on manufacturing page -->
+            <a href="manufacturing.html#machining" class="service-link">Learn More <span>→</span></a>
+          </div>
+        </div>
+        <div class="capability-card">
+          <div class="capability-img finishing-img"></div>
+          <div class="capability-content">
+            <h3>Metal Finishing</h3>
+            <p>Specialized finishing processes for optimal performance.</p>
+            <ul class="capability-list">
+              <li>Anodizing &amp; Plating</li>
+              <li>Passivation</li>
+              <li>Specialized Coatings</li>
+            </ul>
+            <!-- Navigate to the finishing section on manufacturing page -->
+            <a href="manufacturing.html#finishing" class="service-link">Learn More <span>→</span></a>
+          </div>
+        </div>
+        <div class="capability-card">
+          <div class="capability-img assembly-img"></div>
+          <div class="capability-content">
+            <h3>Assembly &amp; Testing</h3>
+            <p>Complete assembly services from components to systems.</p>
+            <ul class="capability-list">
+              <li>Precision Assembly</li>
+              <li>Testing &amp; Validation</li>
+              <li>Clean Room Services</li>
+            </ul>
+            <!-- Navigate to the assembly section on manufacturing page -->
+            <a href="manufacturing.html#assembly" class="service-link">Learn More <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+      <h2 class="certifications-title">Quality Certifications</h2>
+      <p class="certifications-subtitle">Our commitment to quality is backed by industry-leading certifications</p>
+      <div class="certifications-grid">
+        <div class="certification-item">
+          <h3>AS9100D</h3>
+          <p>Aerospace Standard</p>
+        </div>
+        <div class="certification-item">
+          <h3>ISO 9001:2015</h3>
+          <p>Quality Management</p>
+        </div>
+        <div class="certification-item">
+          <h3>Nadcap</h3>
+          <p>Special Processes</p>
+        </div>
+        <div class="certification-item">
+          <h3>ITAR</h3>
+          <p>Registered</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2>Ready to Start Your Next Project?</h2>
+        <p>Contact our team today to discuss your manufacturing needs and discover how Norris Precision can deliver the quality and precision your application demands.</p>
+        <a href="/contact" class="cta-btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="/contact/standard">Contact Us</a>
+      <a href="/contact/emergency">Emergency Contact</a>
+      <a href="/careers">Careers</a>
+      <a href="/suppliers/terms">Supplier Portal</a>
+    </div>
+    <div class="foot-info">
+      <p>4680 110th Avenue North, Clearwater, FL 33762 &mdash;
+      <a href="tel:7275726330">(727) 572-6330</a> &mdash;
+      <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
+      <p>Copyright © 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple JavaScript for header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
