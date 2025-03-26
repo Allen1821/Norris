@@ -13,14 +13,16 @@
   <header>
     <div class="header-container">
       <div class="logo-container">
-        <img src="assests/logo-src.svg" alt="Norris Precision" onclick="window.location = '/'">
+        <img src="assests/logo-src.svg" alt="Norris Precision" class="white-logo" onclick="window.location = '/'">
+
       </div>
 
       <div class="nav-container">
         <div class="nav">
           <a href="/">Home</a>
-          <a href="about.html">About</a>
-          <a href="product.html">Products</a>
+          <a href="page/about.html">About</a>
+          <a href="/product.html">Products</a>
+    
 
           <!-- Capabilities Dropdown -->
           <div class="dropdown">
@@ -36,10 +38,10 @@
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Certifications</a>
             <div class="dropdown-menu">
-              <a href="/quality-certs/as9100">AS9100</a>
-              <a href="/quality-certs/iso-9001">ISO 9001</a>
-              <a href="/quality-certs/nadcap">Nadcap</a>
-              <a href="/quality-certs/itar">ITAR</a>
+              <a href="/quality-certs/AS9100.html">AS9100</a>
+              <a href="/quality-certs/ISO 9001.html">ISO 9001</a>
+              <a href="/quality-certs/Nadcap.html">Nadcap</a>
+              <a href="/quality-certs/ITAR.html">ITAR</a>
               <a href="/quality-certs/fda">FDA</a>
             </div>
           </div>
@@ -50,9 +52,11 @@
             <div class="dropdown-menu">
               <a href="/careers">Careers</a>
               <a href="/blog">Blog</a>
-              <a href="/contact">Contact</a>
-              <a href="/suppliers/terms">Suppliers: Terms &amp; Conditions</a>
-              <a href="/suppliers/quality-clauses">Suppliers: Quality Clauses</a>
+              <a href="/contact.html">Contact</a>
+              <a href="terms.html">Suppliers: Terms &amp; Conditions</a>
+              <a href="terms.html">Suppliers: Quality Clauses</a>
+
+
             </div>
           </div>
         </div>
@@ -64,11 +68,16 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
+      <video autoplay muted loop id="hero-video">
+        <source src="assests/norris_precision (1).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="hero-content">
         <h1 class="hero-title">Advanced Precision Manufacturing Solutions</h1>
-        <p class="hero-subtitle">Setting the industry standard with high-precision components and assemblies for aerospace, defense, and medical applications.</p>
+        <p class="hero-subtitle">
+          Setting the industry standard with high-precision components and assemblies for aerospace, defense, and medical applications.
+        </p>
         <div class="hero-buttons">
-          <!-- Clicking this scrolls to the capabilities section on this page -->
           <a href="#capabilities" class="cta-btn">Explore Capabilities</a>
           <a href="/contact" class="cta-btn outline">Request a Quote</a>
         </div>
@@ -262,3 +271,7 @@
   </script>
 </body>
 </html>
+
+
+
+

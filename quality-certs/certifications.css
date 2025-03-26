@@ -1,0 +1,126 @@
+/* Additional styles specific to certification pages */
+.certification-hero {
+    height: 40vh;
+    min-height: 300px;
+    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('/assests/certification-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 2rem;
+  }
+  
+  .certification-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  
+  .certification-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .certification-details h2 {
+    color: var(--dark-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .certification-details p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  .certification-details ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .certification-details li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .certification-sidebar {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    height: fit-content;
+  }
+  
+  .certification-sidebar h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 0.8rem;
+  }
+  
+  .pdf-container {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+  }
+  
+  .pdf-icon {
+    color: #e74c3c;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .download-btn {
+    display: inline-block;
+    background: var(--accent-blue);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .download-btn:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+  }
+  
+  .other-certs {
+    margin-top: 2.5rem;
+  }
+  
+  .cert-link {
+    display: block;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--white);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--dark-blue);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cert-link:hover {
+    background: var(--light-blue);
+    transform: translateX(5px);
+  }
+  
+  .cert-link i {
+    margin-right: 0.8rem;
+    color: var(--accent-blue);
+  }
+  
+  @media (max-width: 768px) {
+    .certification-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

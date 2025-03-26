@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quality Management System | Norris Precision</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quality.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header (Desktop Navigation) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="assests/logo-src.svg" alt="Norris Precision" class="white-logo" onclick="window.location = '/'">
+      </div>
+
+      <div class="nav-container">
+        <div class="nav">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="product.html">Products</a>
+
+          <!-- Capabilities Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Capabilities</a>
+            <div class="dropdown-menu">
+              <a href="manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality-management">Quality Management</a>
+            </div>
+          </div>
+
+          <!-- Certifications Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">Certifications</a>
+            <div class="dropdown-menu">
+              <a href="/quality-certs/AS9100.html">AS9100</a>
+              <a href="/quality-certs/ISO 9001.html">ISO 9001</a>
+              <a href="/quality-certs/Nadcap.html">Nadcap</a>
+              <a href="/quality-certs/ITAR.html">ITAR</a>
+              <a href="/quality-certs/fda">FDA</a>
+            </div>
+          </div>
+
+          <!-- More Dropdown -->
+          <div class="dropdown">
+            <a href="#" class="dropdown-trigger">More</a>
+            <div class="dropdown-menu">
+              <a href="/careers">Careers</a>
+              <a href="/blog">Blog</a>
+              <a href="/contact.html">Contact</a>
+              <a href="terms.html">Suppliers: Terms &amp; Conditions</a>
+              <a href="terms.html">Suppliers: Quality Clauses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Quality Management Section -->
+    <section class="quality-management-section">
+      <div class="section-container">
+        <div class="quality-content">
+          <div class="section-header">
+            <h1>Quality Management System</h1>
+          </div>
+          <div class="quality-description">
+            <p>Norris Precision's AS9100 Quality Management System effectively documents the processes, procedures, and responsibilities for achieving our quality policies and objectives focused on consistently meeting customer requirements and enhancing their satisfaction.</p>
+            
+            <p>It is aligned with our organization's purpose and strategic direction to continually improve processes, reduce waste, lower costs, and prevent mistakes.</p>
+            
+            <div class="quality-highlights">
+              <h3>Our Quality Commitment Includes:</h3>
+              <ul>
+                <li>Multiple high-accuracy DCC Coordinate Measuring Machines</li>
+                <li>Ensuring conformity to stringent technical requirements</li>
+                <li>Advanced Statistical Process Control software</li>
+                <li>Automated real-time data collection</li>
+                <li>Continuous performance trend analysis</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quality-image">
+          <img src="/assests/quality-management-machine.jpg" alt="Quality Management Measurement Machine">
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+      <div class="section-header">
+        <h2>Our Quality Certifications</h2>
+        <p>Backed by industry-leading standards that ensure top-tier quality and reliability</p>
+      </div>
+      <div class="certifications-grid">
+        <div class="certification-item">
+          <h3>AS9100D</h3>
+          <p>Aerospace Quality Standard</p>
+        </div>
+        <div class="certification-item">
+          <h3>ISO 9001:2015</h3>
+          <p>Quality Management System</p>
+        </div>
+        <div class="certification-item">
+          <h3>Nadcap</h3>
+          <p>Special Processes Accreditation</p>
+        </div>
+        <div class="certification-item">
+          <h3>ITAR</h3>
+          <p>Registered Compliance</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2>Want to Learn More About Our Quality Processes?</h2>
+        <p>Reach out to our team to understand how our rigorous quality management ensures excellence in every component we produce.</p>
+        <a href="/contact" class="cta-btn">Contact Quality Team</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="/contact/standard">Contact Us</a>
+      <a href="/contact/emergency">Emergency Contact</a>
+      <a href="/careers">Careers</a>
+      <a href="/suppliers/terms">Supplier Portal</a>
+    </div>
+    <div class="foot-info">
+      <p>4680 110th Avenue North, Clearwater, FL 33762 &mdash;
+      <a href="tel:7275726330">(727) 572-6330</a> &mdash;
+      <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
+      <p>Copyright © 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple JavaScript for header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

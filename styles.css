@@ -1,6 +1,10 @@
 html {
   scroll-behavior: smooth;
 }
+.white-logo {
+  filter: invert(1);
+}
+
 :root {
   --dark-blue: #0a192f;
   --primary-blue: #0f4c75;
@@ -165,27 +169,29 @@ header {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 70vh;
+  height: 90vh;
   min-height: 500px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;
   padding-left: 10%;
 }
 
-.hero::before {
-  content: "";
+#hero-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('assests/Background.jpg') center/cover no-repeat;
-  filter: brightness(30%) saturate(110%);
+  object-fit: cover; /* Ensures the video covers the container */
   z-index: -1;
+  filter: brightness(30%) saturate(110%);
   transition: all 0.5s ease;
 }
+
+
+
 
 .hero-content {
   max-width: 650px;
@@ -215,6 +221,8 @@ header {
   gap: 1rem;
   margin-top: 2rem;
 }
+
+
 
 .cta-btn {
   display: inline-block;
