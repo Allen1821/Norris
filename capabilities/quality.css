@@ -11,6 +11,12 @@
     align-items: center;
     gap: 3rem;
   }
+
+.certifications-section h2,
+.certifications-section p {
+  color: var(--white);
+}
+
   
   .quality-content {
     flex: 1;
