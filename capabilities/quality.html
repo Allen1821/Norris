@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ISO 9001 - Norris Precision Manufacturing</title>
+  <title>Quality Management System | Norris Precision</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Base and Certification-Specific Styles -->
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="certifications.css">
+  <link rel="stylesheet" href="quality.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (Desktop Navigation) -->
   <header>
     <div class="header-container">
       <div class="logo-container">
         <div class="logo" onclick="window.location = '/'"></div>
       </div>
-      <nav class="nav-container">
+
+      <div class="nav-container">
         <div class="nav">
           <a href="/">Home</a>
           <a href="/about page/about.html">About</a>
+          
+
           <!-- Capabilities Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Capabilities</a>
             <div class="dropdown-menu">
               <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
-              <a href="/capabilities/quality.html">Quality Management</a>
+              <a href="quality.html">Quality Management</a>
               <a href="/warehouse/shipping.html">Warehouse and logistics</a>
             </div>
           </div>
+
           <!-- Certifications Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Certifications</a>
@@ -41,22 +44,25 @@
               <a href="/quality-certs/fda">FDA</a>
             </div>
           </div>
+
           <!-- More Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">More</a>
             <div class="dropdown-menu">
               <a href="/career/career.html">Careers</a>
+              
               <a href="/contact/contact.html">Contact</a>
               <a href="/terms/terms.html">Suppliers: Terms &amp; Conditions</a>
               <a href="/terms/terms.html">Suppliers: Quality Clauses</a>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </div>
       <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
     </div>
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
@@ -66,8 +72,9 @@
         <li class="dropdown">
           <a href="#" class="mobile-dropdown-trigger">Capabilities <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="/capabilities/manufacturing.html#machining">Manufacturing</a></li>
-            <li><a href="/capabilities/quality.html">Quality Management</a></li>
+            <li><a href="manufacturing.html">Manufacturing</a></li>
+            <li><a href="quality.html">Quality Management</a></li>
+            <li><a href="/warehouse/shipping.html">Warehouse and Logistics</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -93,61 +100,73 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="certification-hero">
-    <div>
-      <h1>ISO 9001</h1>
-      <p>Global Standard for Quality Management Systems</p>
-    </div>
-  </section>
+
 
   <!-- Main Content -->
   <main>
-    <section class="certification-content">
-      <div class="certification-grid">
-        <!-- Main Column -->
-        <div class="certification-details">
-          <h2>About ISO 9001</h2>
-          <p>ISO 9001 specifies requirements for a Quality Management System (QMS) that helps organizations consistently provide products and services meeting customer and regulatory requirements.</p>
-          <h2>Why ISO 9001 Matters</h2>
-          <ul>
-            <li>Framework for consistent quality</li>
-            <li>Focus on customer satisfaction</li>
-            <li>Evidence-based decision making</li>
-            <li>Continual improvement</li>
-          </ul>
-          <h2>Our Commitment</h2>
-          <p>Our ISO 9001 certification confirms our dedication to maintaining the highest standards in quality management.</p>
-        </div>
-        <!-- Sidebar Column -->
-        <div class="certification-sidebar">
-          <h3>Current Certificate</h3>
-          <div class="pdf-container">
-            <div class="pdf-icon">
-              <i class="far fa-file-pdf"></i>
+    <!-- Quality Management Section -->
+    <section class="quality-management-section">
+      <div class="section-container">
+        <div class="quality-content">
+          <div class="section-header">
+            <h1>Quality Management System</h1>
+          </div>
+          <div class="quality-description">
+            <p>Norris Precision's AS9100 Quality Management System effectively documents the processes, procedures, and responsibilities for achieving our quality policies and objectives focused on consistently meeting customer requirements and enhancing their satisfaction.</p>
+            
+            <p>It is aligned with our organization's purpose and strategic direction to continually improve processes, reduce waste, lower costs, and prevent mistakes.</p>
+            
+            <div class="quality-highlights">
+              <h3>Our Quality Commitment Includes:</h3>
+              <ul>
+                <li>Multiple high-accuracy DCC Coordinate Measuring Machines</li>
+                <li>Ensuring conformity to stringent technical requirements</li>
+                <li>Advanced Statistical Process Control software</li>
+                <li>Automated real-time data collection</li>
+                <li>Continuous performance trend analysis</li>
+              </ul>
             </div>
-            <h4>ISO 9001 Certificate</h4>
-            <p>Valid: Jan 2023 - Jan 2026</p>
-            <a href="/pdfs/certifications/ISO9001-certificate.pdf" class="download-btn" download>
-              <i class="fas fa-download"></i> Download PDF
-            </a>
           </div>
-          <div class="other-certs">
-            <h3>Other Certifications</h3>
-            <a href="/quality-certs/AS9100.html" class="cert-link"><i class="fas fa-certificate"></i> AS9100D</a>
-            <a href="/quality-certs/Nadcap.html" class="cert-link"><i class="fas fa-certificate"></i> Nadcap</a>
-            <a href="/quality-certs/ITAR.html" class="cert-link"><i class="fas fa-certificate"></i> ITAR</a>
-            <a href="/quality-certs/fda.html" class="cert-link"><i class="fas fa-certificate"></i> FDA</a>
-          </div>
+        </div>
+        
+        <div class="quality-image">
+          <img src="/assests/quality_mgmt.jpg" alt="Quality Management Measurement Machine">
         </div>
       </div>
     </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+      <div class="section-header">
+        <h2>Our Quality Certifications</h2>
+        <p>Backed by industry-leading standards that ensure top-tier quality and reliability</p>
+      </div>
+      <div class="certifications-grid">
+        <div class="certification-item">
+          <h3>AS9100D</h3>
+          <p>Aerospace Quality Standard</p>
+        </div>
+        <div class="certification-item">
+          <h3>ISO 9001</h3>
+          <p>Quality Management System</p>
+        </div>
+        <div class="certification-item">
+          <h3>Nadcap</h3>
+          <p>Special Processes Accreditation</p>
+        </div>
+        <div class="certification-item">
+          <h3>ITAR</h3>
+          <p>Registered Compliance</p>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="cta-container">
-        <h2>Ready to Partner with a Certified Manufacturer?</h2>
-        <p>Contact our team to learn how our ISO 9001 QMS can enhance your project's success.</p>
-        <a href="/contact/contact.html" class="cta-btn">Contact Us</a>
+        <h2>Want to Learn More About Our Quality Processes?</h2>
+        <p>Reach out to our team to understand how our rigorous quality management ensures excellence in every component we produce.</p>
+        <a href="/contact/contact.html" class="cta-btn"> Contact Quality Team</a>
       </div>
     </section>
   </main>
@@ -162,6 +181,7 @@
             <p>Delivering precision engineering solutions for aerospace, defense, and medical industries.</p>
           </div>
         </div>
+        
         <div class="footer-section footer-quick-links">
           <h4>Quick Links</h4>
           <div class="footer-links-columns">
@@ -180,6 +200,7 @@
             </div>
           </div>
         </div>
+        
         <div class="footer-section footer-contact">
           <h4>Contact Us</h4>
           <div class="contact-info">
@@ -188,6 +209,7 @@
             <p><i class="fas fa-envelope"></i> <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
           </div>
         </div>
+        
         <div class="footer-section footer-social">
           <h4>Connect With Us</h4>
           <div class="social-icons">
@@ -196,6 +218,7 @@
           </div>
         </div>
       </div>
+      
       <div class="footer-bottom">
         <p>&copy; 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
         <div class="footer-legal-links">
@@ -205,8 +228,8 @@
       </div>
     </div>
   </footer>
-  
-  <!-- Script -->
   <script src="/script.js" defer></script>
+
+
 </body>
 </html>

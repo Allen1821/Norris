@@ -1,0 +1,239 @@
+
+
+
+/* Warehouse Hero Section */
+.warehouse-hero {
+  background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)),
+    url('warehouse-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.warehouse-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 25, 47, 0.7);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.warehouse-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.warehouse-hero p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Logistics Features Section */
+.logistics-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: var(--white);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--light-gray);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background: var(--light-blue);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--accent-blue);
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon svg {
+  width: 60px;
+  height: 60px;
+  fill: var(--accent-blue);
+}
+
+/* Shipping Process Section */
+.shipping-process {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.shipping-steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 3rem auto;
+  position: relative;
+}
+
+.shipping-step {
+  flex: 1;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.shipping-step:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.shipping-process h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Compliance Section */
+.compliance-section {
+  background: var(--white);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.compliance-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.compliance-item {
+  background: var(--light-gray);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.compliance-item:hover {
+  transform: translateY(-10px);
+  background: var(--light-blue);
+}
+
+/* CTA Section */
+.cta-section {
+  background: var(--navy-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+  
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--white);
+  color: var(--accent-blue);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: var(--light-blue);
+  transform: translateY(-5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .logistics-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shipping-steps {
+    flex-direction: column;
+  }
+  .shipping-step {
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+   
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000;
+  }
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 300px;
+    height: 100%;
+    background: var(--dark-blue);
+    padding: 2rem 1.5rem;
+    z-index: 9999;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  .mobile-nav li {
+    margin-bottom: 1rem;
+  }
+  .mobile-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  .mobile-nav .dropdown .dropdown-menu {
+    display: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+  .mobile-nav .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+
+

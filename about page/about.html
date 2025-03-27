@@ -4,37 +4,35 @@
   <meta charset="utf-8">
   <title>About Us | Norris Precision Manufacturing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="about.css">
+  <!-- Base Styles and Page-Specific Styles -->
   <link rel="stylesheet" href="/styles.css">
-  
+  <link rel="stylesheet" href="about.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header (Desktop Navigation) -->
+  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="logo-container">
-        <img src="/api/placeholder/200/60" alt="Norris Precision" onclick="window.location = '/'">
+        <div class="logo" onclick="window.location = '/'"></div>
       </div>
-
-      <div class="nav-container">
+      <!-- Desktop Navigation -->
+      <nav class="nav-container">
         <div class="nav">
           <a href="/">Home</a>
           <a href="about.html" class="active">About</a>
-          <a href="/product-showcase">Services</a>
-
           <!-- Capabilities Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Capabilities</a>
             <div class="dropdown-menu">
-              <a href="manufacturing.html">Manufacturing</a>
-              <a href="/capabilities/quality-management">Quality Management</a>
+              <a href="/capabilities/manufacturing.html">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
+              <a href="/warehouse/shipping.html">Warehouse and logistics</a>
             </div>
           </div>
-
           <!-- Certifications Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Certifications</a>
@@ -46,21 +44,57 @@
               <a href="/quality-certs/fda">FDA</a>
             </div>
           </div>
-
           <!-- More Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">More</a>
             <div class="dropdown-menu">
-              <a href="/careers">Careers</a>
-              <a href="/blog">Blog</a>
-              <a href="/contact">Contact</a>
-              <a href="/suppliers/terms">Suppliers: Terms &amp; Conditions</a>
-              <a href="/suppliers/quality-clauses">Suppliers: Quality Clauses</a>
+              <a href="/career/career.html">Careers</a>
+              <a href="/contact/contact.html">Contact</a>
+              <a href="/terms/terms.html">Suppliers: Terms &amp; Conditions</a>
+              <a href="/terms/terms.html">Suppliers: Quality Clauses</a>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Capabilities <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/capabilities/manufacturing.html">Manufacturing</a></li>
+            <li><a href="/capabilities/quality.html">Quality Management</a></li>
+            <li><a href="/warehouse/shipping.html">Warehouse and Logistics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Certifications <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/quality-certs/AS9100.html">AS9100</a></li>
+            <li><a href="/quality-certs/ISO 9001.html">ISO 9001</a></li>
+            <li><a href="/quality-certs/Nadcap.html">Nadcap</a></li>
+            <li><a href="/quality-certs/ITAR.html">ITAR</a></li>
+            <li><a href="/quality-certs/fda">FDA</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">More <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/career/career.html">Careers</a></li>
+            <li><a href="/contact/contact.html">Contact</a></li>
+            <li><a href="/terms/terms.html">Suppliers: Terms &amp; Conditions</a></li>
+            <li><a href="/terms/terms.html">Suppliers: Quality Clauses</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main Content -->
@@ -71,11 +105,7 @@
         <h1 class="hero-title">About Norris Precision</h1>
         <p class="hero-subtitle">Over 40 years of excellence in aerospace, military, and medical manufacturing</p>
       </div>
-
     </section>
-    
-    
-    
     <!-- Company Story Section -->
     <section class="about-story">
       <div class="container">
@@ -86,19 +116,18 @@
               Norris Precision Manufacturing has been a trusted partner in the aerospace, military, and medical industries for over 40 years.
             </p>
             <p>
-              Founded in 1978, Joe Norris Sr. used his experience, expertise, and unwavering dedication to create and develop one of the finest aerospace manufacturing companies in the world. "To stay ahead of your competition you must keep up with technology in every aspect of your business" — a statement which Founder/CEO Joe Norris Sr. and President Joe Norris Jr. consider the backbone of their company's success.
+              Founded in 1978, Joe Norris Sr. used his experience, expertise, and unwavering dedication to create one of the finest aerospace manufacturing companies in the world. "To stay ahead of your competition you must keep up with technology in every aspect of your business" is a guiding principle for us.
             </p>
             <p>
-              Operating out of a modern 60,000 sq. ft. facility in Clearwater, Florida, Norris Precision employs an array of manufacturing capabilities to ensure customer satisfaction. From the latest 5-axis machining centers and Nadcap accredited metal finishing to the finest ERP and quality management systems, our commitment to quality is unparalleled in the industry.
+              Operating from a modern 60,000 sq. ft. facility in Clearwater, Florida, we utilize cutting‐edge equipment and robust quality systems to deliver precision components.
             </p>
           </div>
           <div class="about-image">
-            <img src="assests/about-us.jpg" alt="Norris Precision Facility">
+            <img src="/assests/about-us.jpg" alt="Norris Precision Facility">
           </div>
         </div>
       </div>
     </section>
-
     <!-- Values Section -->
     <section class="values-section">
       <div class="container">
@@ -116,27 +145,26 @@
               <i class="fas fa-handshake"></i>
             </div>
             <h3>Integrity</h3>
-            <p>We operate with honesty and transparency, ensuring that our business practices meet the highest ethical standards.</p>
+            <p>We operate with honesty and transparency, ensuring our practices meet the highest ethical standards.</p>
           </div>
           <div class="value-card">
             <div class="value-icon">
               <i class="fas fa-lightbulb"></i>
             </div>
             <h3>Innovation</h3>
-            <p>We continually invest in cutting-edge technology and processes to deliver the most advanced manufacturing solutions.</p>
+            <p>We invest in cutting-edge technology and processes to deliver the most advanced manufacturing solutions.</p>
           </div>
           <div class="value-card">
             <div class="value-icon">
               <i class="fas fa-users"></i>
             </div>
             <h3>Partnership</h3>
-            <p>We view our clients as partners, working collaboratively to achieve mutual success and long-term relationships.</p>
+            <p>We view our clients as partners, working collaboratively to achieve mutual success.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Leadership Team -->
+    <!-- Leadership Team Section -->
     <section class="leadership-section">
       <div class="container">
         <h2 class="section-title">Leadership Team</h2>
@@ -146,8 +174,8 @@
               <img src="/api/placeholder/300/300" alt="Joe Norris Sr.">
             </div>
             <h3>Joe Norris Sr.</h3>
-            <p class="leader-title">Founder & CEO</p>
-            <p class="leader-bio">With over 45 years in precision manufacturing, Joe Sr. established Norris Precision with a vision for excellence that continues to guide the company today.</p>
+            <p class="leader-title">Founder &amp; CEO</p>
+            <p class="leader-bio">Joe Sr. established Norris Precision in 1978 with a vision for excellence that continues today.</p>
           </div>
           <div class="leader-card">
             <div class="leader-image">
@@ -155,11 +183,12 @@
             </div>
             <h3>Joe Norris Jr.</h3>
             <p class="leader-title">President</p>
-            <p class="leader-bio">Leading the company into the next generation, Joe Jr. brings innovative approaches while maintaining the core values that have made Norris Precision an industry leader.</p>
+            <p class="leader-bio">Joe Jr. leads our team into the next generation of innovation while upholding our core values.</p>
           </div>
         </div>
       </div>
     </section>
+  </main>
 
     <!-- Timeline Section -->
     <section class="timeline-section">
@@ -232,7 +261,7 @@
         <div class="cta-container">
           <h2>Ready to partner with Norris Precision?</h2>
           <p>Contact our team today to discuss how our precision manufacturing expertise can support your next project.</p>
-          <a href="/contact" class="cta-btn">Contact Us</a>
+          <a href="/contact/contact.html" class="cta-btn">Contact Us</a>
         </div>
       </div>
     </section>
@@ -240,30 +269,63 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="/contact/standard">Contact Us</a>
-      <a href="/contact/emergency">Emergency Contact</a>
-      <a href="/careers">Careers</a>
-      <a href="/suppliers/terms">Supplier Portal</a>
-    </div>
-    <div class="foot-info">
-      <p>4680 110th Avenue North, Clearwater, FL 33762 &mdash;
-      <a href="tel:7275726330">(727) 572-6330</a> &mdash;
-      <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
-      <p>Copyright © 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section footer-about">
+          <div class="footer-logo">
+            <img src="/assests/logo-src.svg" alt="Norris Precision" class="white-logo">
+            <p>Delivering precision engineering solutions for aerospace, defense, and medical industries.</p>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-quick-links">
+          <h4>Quick Links</h4>
+          <div class="footer-links-columns">
+            <div class="links-column">
+              <a href="/">Home</a>
+              <a href="/about page/about.html">About</a>
+              <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
+              <a href="/career/career.html">Career</a>
+            </div>
+            <div class="links-column">
+              <a href="/quality-certs/AS9100.html">AS9100</a>
+              <a href="/quality-certs/ISO 9001.html">ISO 9001</a>
+              <a href="/quality-certs/Nadcap.html">Nadcap</a>
+              <a href="/quality-certs/ITAR.html">ITAR</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> 4680 110th Avenue North,<br>Clearwater, FL 33762</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:7275726330">(727) 572-6330</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-social">
+          <h4>Connect With Us</h4>
+          <div class="social-icons">
+            <a href="https://www.youtube.com/@norrisprecisionmanufacturi3948" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/norris-precision-manufacturing/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="/terms/terms.html">Terms of Service</a>
+          <a href="/privacy/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
+  <script src="/script.js" defer></script>
 
-  <script>
-    // Simple JavaScript for header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
+
 </body>
 </html>

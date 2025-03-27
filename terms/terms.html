@@ -4,35 +4,31 @@
   <meta charset="utf-8">
   <title>Terms and Conditions - Norris Precision Manufacturing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Base and Page-Specific Styles -->
+  <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="terms.css">
-  
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Header (Desktop Navigation) -->
+  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="logo-container">
-        <img src="assests/logo-src.svg" alt="Norris Precision" onclick="window.location = '/'">
+        <div class="logo" onclick="window.location = '/'"></div>
       </div>
-
-      <div class="nav-container">
+      <nav class="nav-container">
         <div class="nav">
           <a href="/">Home</a>
-          <a href="about.html">About</a>
-          <a href="product.html">Products</a>
-
+          <a href="/about page/about.html">About</a>
           <!-- Capabilities Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Capabilities</a>
             <div class="dropdown-menu">
-              <a href="manufacturing.html#machining">Manufacturing</a>
-              <a href="/capabilities/quality-management">Quality Management</a>
+              <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
             </div>
           </div>
-
           <!-- Certifications Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Certifications</a>
@@ -44,40 +40,75 @@
               <a href="/quality-certs/fda">FDA</a>
             </div>
           </div>
-          
           <!-- More Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">More</a>
             <div class="dropdown-menu">
-              <a href="/careers">Careers</a>
-              <a href="/blog">Blog</a>
-              <a href="/contact">Contact</a>
-              <a href="/suppliers/terms">Suppliers: Terms &amp; Conditions</a>
-              <a href="/suppliers/quality-clauses">Suppliers: Quality Clauses</a>
+              <a href="/career/career.html">Careers</a>
+              <a href="/contact/contact.html">Contact</a>
+              <a href="/terms/terms.html" class="active">Suppliers: Terms & Conditions</a>
+              <a href="/terms/terms.html">Suppliers: Quality Clauses</a>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about page/about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Capabilities <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/capabilities/manufacturing.html#machining">Manufacturing</a></li>
+            <li><a href="/capabilities/quality.html">Quality Management</a></li>
+            <a href="/warehouse/shipping.html">Warehouse and logistics</a>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Certifications <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/quality-certs/AS9100.html">AS9100</a></li>
+            <li><a href="/quality-certs/ISO 9001.html">ISO 9001</a></li>
+            <li><a href="/quality-certs/Nadcap.html">Nadcap</a></li>
+            <li><a href="/quality-certs/ITAR.html">ITAR</a></li>
+            <li><a href="/quality-certs/fda">FDA</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">More <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/career/career.html">Careers</a></li>
+            <li><a href="/contact/contact.html">Contact</a></li>
+            <li><a href="/terms/terms.html" class="active">Suppliers: Terms & Conditions</a></li>
+            <li><a href="/terms/terms.html">Suppliers: Quality Clauses</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content: Terms and Conditions -->
   <main class="terms-page">
     <section class="terms-section">
       <div class="terms-container">
         <div class="terms-sidebar">
           <div class="terms-file-list">
-            <div class="terms-file-item active" data-pdf="certifications/terms-conditions.pdf">
+            <div class="terms-file-item active" data-pdf="/certifications/terms-conditions.pdf">
               <i class="fas fa-file-alt"></i> Terms & Conditions
             </div>
-
-            <div class="terms-file-item" data-pdf="Certifications/quality-clauses.pdf">
+            <div class="terms-file-item" data-pdf="/certifications/quality-clauses.pdf">
               <i class="fas fa-check-circle"></i> Quality Clauses
             </div>
           </div>
         </div>
         <div class="terms-viewer">
-          <iframe id="terms-frame" src="certifications/terms-conditions.pdf" frameborder="0"></iframe>
+          <iframe id="terms-frame" src="/certifications/terms-conditions.pdf" frameborder="0"></iframe>
         </div>
       </div>
     </section>
@@ -85,40 +116,74 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="/contact/standard">Contact Us</a>
-      <a href="/contact/emergency">Emergency Contact</a>
-      <a href="/careers">Careers</a>
-      <a href="/suppliers/terms">Supplier Portal</a>
-    </div>
-    <div class="foot-info">
-      <p>4680 110th Avenue North, Clearwater, FL 33762 &mdash;
-      <a href="tel:7275726330">(727) 572-6330</a> &mdash;
-      <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
-      <p>Copyright © 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section footer-about">
+          <div class="footer-logo">
+            <img src="/assests/logo-src.svg" alt="Norris Precision" class="white-logo">
+            <p>Delivering precision engineering solutions for aerospace, defense, and medical industries.</p>
+          </div>
+        </div>
+        <div class="footer-section footer-quick-links">
+          <h4>Quick Links</h4>
+          <div class="footer-links-columns">
+            <div class="links-column">
+              <a href="/">Home</a>
+              <a href="/about page/about.html">About</a>
+              <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
+              <a href="/career/career.html">Career</a>
+            </div>
+            <div class="links-column">
+              <a href="/quality-certs/AS9100.html">AS9100</a>
+              <a href="/quality-certs/ISO 9001.html">ISO 9001</a>
+              <a href="/quality-certs/Nadcap.html">Nadcap</a>
+              <a href="/quality-certs/ITAR.html">ITAR</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> 4680 110th Avenue North,<br>Clearwater, FL 33762</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:7275726330">(727) 572-6330</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
+          </div>
+        </div>
+        <div class="footer-section footer-social">
+          <h4>Connect With Us</h4>
+          <div class="social-icons">
+            <a href="https://www.youtube.com/@norrisprecisionmanufacturi3948" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/norris-precision-manufacturing/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="/terms/terms.html">Terms of Service</a>
+          <a href="/privacy/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
-
+  
+  <!-- Scripts -->
   <script>
     // PDF Switching Logic
     document.addEventListener('DOMContentLoaded', () => {
       const fileItems = document.querySelectorAll('.terms-file-item');
       const termsFrame = document.getElementById('terms-frame');
-
       fileItems.forEach(item => {
         item.addEventListener('click', () => {
-          // Remove active class from all items
           fileItems.forEach(el => el.classList.remove('active'));
-          
-          // Add active class to clicked item
           item.classList.add('active');
-          
-          // Change PDF source
           const pdfFile = item.getAttribute('data-pdf');
           termsFrame.src = pdfFile;
         });
       });
     });
   </script>
+  <script src="/script.js" defer></script>
 </body>
 </html>

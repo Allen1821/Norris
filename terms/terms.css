@@ -59,6 +59,7 @@
   
   .terms-viewer {
     flex-grow: 1;
+    overflow: auto;  /* Allow scrolling if the PDF is taller than the container */
   }
   
   .terms-viewer iframe {
@@ -67,25 +68,32 @@
     border: none;
   }
   
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .terms-container {
-      flex-direction: column;
-      height: auto;
-    }
-  
-    .terms-sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid var(--accent-blue);
-    }
-  
-    .terms-file-list {
-      flex-direction: row;
-      overflow-x: auto;
-    }
-  
-    .terms-file-item {
-      flex-shrink: 0;
-    }
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .terms-container {
+    flex-direction: column;
+    /* Let the container expand to show the PDF better */
+    height: auto;
   }
+
+  .terms-viewer iframe {
+    /* Ensure a minimum height using viewport units */
+    min-height: 80vh;
+  }
+  
+  /* Optional: Adjust the sidebar layout if needed */
+  .terms-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--accent-blue);
+  }
+  
+  .terms-file-list {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  
+  .terms-file-item {
+    flex-shrink: 0;
+  }
+}

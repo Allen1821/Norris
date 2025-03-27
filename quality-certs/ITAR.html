@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <title>ITAR - Norris Precision Manufacturing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Main Styles -->
+  <!-- Base and Certification-Specific Styles -->
   <link rel="stylesheet" href="/styles.css">
-  <!-- Certification-Specific Styles -->
-  <link rel="stylesheet" href="/certifications.css">
+  <link rel="stylesheet" href="certifications.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -16,19 +15,18 @@
   <header>
     <div class="header-container">
       <div class="logo-container">
-        <img src="assests/logo-src.svg" alt="Norris Precision" onclick="window.location='/'">
+        <div class="logo" onclick="window.location = '/'"></div>
       </div>
-      <div class="nav-container">
+      <nav class="nav-container">
         <div class="nav">
           <a href="/">Home</a>
-          <a href="/about.html">About</a>
-          <a href="product.html">Products</a>
+          <a href="/about page/about.html">About</a>
           <!-- Capabilities Dropdown -->
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">Capabilities</a>
             <div class="dropdown-menu">
-              <a href="manufacturing.html#machining">Manufacturing</a>
-              <a href="/capabilities/quality-management">Quality Management</a>
+              <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
             </div>
           </div>
           <!-- Certifications Dropdown -->
@@ -46,16 +44,53 @@
           <div class="dropdown">
             <a href="#" class="dropdown-trigger">More</a>
             <div class="dropdown-menu">
-              <a href="/careers">Careers</a>
-              <a href="/blog">Blog</a>
-              <a href="/contact">Contact</a>
-              <a href="/suppliers/terms">Suppliers: Terms &amp; Conditions</a>
-              <a href="/suppliers/quality-clauses">Suppliers: Quality Clauses</a>
+              <a href="/career/career.html">Careers</a>
+              <a href="/contact/contact.html">Contact</a>
+              <a href="/terms/terms.html">Suppliers: Terms &amp; Conditions</a>
+              <a href="/terms/terms.html">Suppliers: Quality Clauses</a>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about page/about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Capabilities <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/capabilities/manufacturing.html#machining">Manufacturing</a></li>
+            <li><a href="/capabilities/quality.html">Quality Management</a></li>
+            <a href="/warehouse/shipping.html">Warehouse and logistics</a>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">Certifications <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/quality-certs/AS9100.html">AS9100</a></li>
+            <li><a href="/quality-certs/ISO 9001.html">ISO 9001</a></li>
+            <li><a href="/quality-certs/Nadcap.html">Nadcap</a></li>
+            <li><a href="/quality-certs/ITAR.html">ITAR</a></li>
+            <li><a href="/quality-certs/fda">FDA</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="mobile-dropdown-trigger">More <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/career/career.html">Careers</a></li>
+            <li><a href="/contact/contact.html">Contact</a></li>
+            <li><a href="/terms/terms.html">Suppliers: Terms &amp; Conditions</a></li>
+            <li><a href="/terms/terms.html">Suppliers: Quality Clauses</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Certification Hero -->
@@ -70,22 +105,19 @@
   <main>
     <section class="certification-content">
       <div class="certification-grid">
-        <!-- Main Content Column -->
+        <!-- Main Column -->
         <div class="certification-details">
           <h2>About ITAR</h2>
-          <p>ITAR (International Traffic in Arms Regulations) governs the export and import of defense-related materials, services, and technical data. Being ITAR-compliant means we follow strict U.S. government regulations to protect sensitive defense information and hardware, ensuring national security and customer trust.</p>
-          
+          <p>ITAR governs the export and import of defense-related materials, services, and technical data. Our ITAR compliance ensures secure handling of sensitive defense information.</p>
           <h2>Why ITAR Matters</h2>
           <ul>
             <li>Compliance with U.S. export controls</li>
-            <li>Secure handling of defense-related data</li>
-            <li>Eligibility to work on sensitive government contracts</li>
+            <li>Secure handling of defense data</li>
+            <li>Eligibility for sensitive government contracts</li>
           </ul>
-          
           <h2>Our ITAR Commitment</h2>
-          <p>Norris Precision Manufacturing is fully registered under ITAR, ensuring that our operations and data handling practices meet the stringent security protocols required by U.S. government regulations. Our dedicated teams and robust security measures ensure compliance and safeguard critical information.</p>
+          <p>We are fully registered under ITAR and implement robust security measures to maintain compliance.</p>
         </div>
-
         <!-- Sidebar Column -->
         <div class="certification-sidebar">
           <h3>Current Certificate</h3>
@@ -99,62 +131,81 @@
               <i class="fas fa-download"></i> Download PDF
             </a>
           </div>
-          
           <div class="other-certs">
             <h3>Other Certifications</h3>
-            <a href="/quality-certs/AS9100.html" class="cert-link">
-              <i class="fas fa-certificate"></i> AS9100
-            </a>
-            <a href="/quality-certs/ISO 9001.html" class="cert-link">
-              <i class="fas fa-certificate"></i> ISO 9001
-            </a>
-            <a href="/quality-certs/Nadcap.html" class="cert-link">
-              <i class="fas fa-certificate"></i> Nadcap
-            </a>
-            <a href="/quality-certs/fda.html" class="cert-link">
-              <i class="fas fa-certificate"></i> FDA
-            </a>
+            <a href="/quality-certs/AS9100.html" class="cert-link"><i class="fas fa-certificate"></i> AS9100D</a>
+            <a href="/quality-certs/ISO 9001.html" class="cert-link"><i class="fas fa-certificate"></i> ISO 9001</a>
+            <a href="/quality-certs/Nadcap.html" class="cert-link"><i class="fas fa-certificate"></i> Nadcap</a>
+            <a href="/quality-certs/fda.html" class="cert-link"><i class="fas fa-certificate"></i> FDA</a>
           </div>
         </div>
       </div>
     </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="cta-container">
         <h2>Need an ITAR-Compliant Partner?</h2>
         <p>Contact us to discuss your defense or government project requirements.</p>
-        <a href="/contact" class="cta-btn">Request a Quote</a>
+        <a href="/contact/contact.html" class="cta-btn">Contact Us</a>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="/contact/standard">Contact Us</a>
-      <a href="/contact/emergency">Emergency Contact</a>
-      <a href="/careers">Careers</a>
-      <a href="/suppliers/terms">Supplier Portal</a>
-    </div>
-    <div class="foot-info">
-      <p>4680 110th Avenue North, Clearwater, FL 33762 &mdash;
-      <a href="tel:7275726330">(727) 572-6330</a> &mdash;
-      <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
-      <p>Copyright © 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section footer-about">
+          <div class="footer-logo">
+            <img src="/assests/logo-src.svg" alt="Norris Precision" class="white-logo">
+            <p>Delivering precision engineering solutions for aerospace, defense, and medical industries.</p>
+          </div>
+        </div>
+        <div class="footer-section footer-quick-links">
+          <h4>Quick Links</h4>
+          <div class="footer-links-columns">
+            <div class="links-column">
+              <a href="/">Home</a>
+              <a href="/about page/about.html">About</a>
+              <a href="/capabilities/manufacturing.html#machining">Manufacturing</a>
+              <a href="/capabilities/quality.html">Quality Management</a>
+              <a href="/career/career.html">Career</a>
+            </div>
+            <div class="links-column">
+              <a href="/quality-certs/AS9100.html">AS9100</a>
+              <a href="/quality-certs/ISO 9001.html">ISO 9001</a>
+              <a href="/quality-certs/Nadcap.html">Nadcap</a>
+              <a href="/quality-certs/ITAR.html">ITAR</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> 4680 110th Avenue North,<br>Clearwater, FL 33762</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:7275726330">(727) 572-6330</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@norrisprecision.com">info@norrisprecision.com</a></p>
+          </div>
+        </div>
+        <div class="footer-section footer-social">
+          <h4>Connect With Us</h4>
+          <div class="social-icons">
+            <a href="https://www.youtube.com/@norrisprecisionmanufacturi3948" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/norris-precision-manufacturing/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Norris Precision Mfg Inc. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="/terms/terms.html">Terms of Service</a>
+          <a href="/privacy/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
-
-  <script>
-    // Simple JavaScript for header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
+  
+  <!-- Script -->
+  <script src="/script.js" defer></script>
 </body>
 </html>
