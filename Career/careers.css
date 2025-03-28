@@ -2,11 +2,12 @@
   position: relative;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: right;      /* Centers vertically */
+  justify-content: left;  /* Centers horizontally */
   overflow: hidden;
   color: white;
 }
+
 
 .hero-bg-image {
   position: absolute;
@@ -19,6 +20,9 @@
   filter: brightness(0.6);
 }
 
+
+
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -30,6 +34,7 @@
 /* Careers Hero Modifications */
 .careers-hero {
     background: var(--dark-blue);
+    
   }
   
   /* Why Work Here Section */
