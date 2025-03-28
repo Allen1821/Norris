@@ -24,7 +24,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: url('/assests/Background.jpg') no-repeat center center;
+  background: url('assests/Background.jpg') no-repeat center center;
   background-size: cover;
   filter: brightness(30%) saturate(110%);
   z-index: -1; /* positions it behind the content */
