@@ -2,7 +2,7 @@
 .certification-hero {
     height: 40vh;
     min-height: 300px;
-    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('/assests/certification-bg.jpg');
+    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('../assests/certification-bg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;

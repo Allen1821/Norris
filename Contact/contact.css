@@ -3,7 +3,7 @@
 /* Contact Information Section Styles */
 
 .hero {
-  background-image: url('/assests/contact-background.png'); /* Replace with your image path */
+  background-image: url('../assests/contact-background.png'); /* Replace with your image path */
   background-size: cover; /* Ensures the image covers the entire section */
   background-position: center center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents repeating the image */

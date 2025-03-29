@@ -1,7 +1,7 @@
 
   .fda-hero {
     background: linear-gradient(rgba(15, 76, 117, 0.85), rgba(15, 76, 117, 0.85)),
-                url('/assests/medical-hero-bg.jpg') no-repeat center center;
+                url('../assests/medical-hero-bg.jpg') no-repeat center center;
     background-size: cover;
     color: var(--white);
     text-align: center;
