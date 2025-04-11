@@ -1,7 +1,7 @@
 (() => {
-    const pathPrefix = (window.location.pathname === "/" || window.location.pathname.endsWith("index.html"))
-      ? ""  // root page
-      : "../";  // subpages
+    const path = window.location.pathname;
+    const isRoot = path === "/" || path.endsWith("/index.html");
+    const pathPrefix = isRoot ? "" : "../";
   
     fetch(`${pathPrefix}mobile-nav/mobile.html`)
       .then(response => response.text())
@@ -14,7 +14,7 @@
         if (mobileNav && placeholder) {
           placeholder.innerHTML = mobileNav.outerHTML;
   
-          // ✅ Fix relative links if on root
+          // ✅ Fix relative links on root page
           if (pathPrefix === "") {
             document.querySelectorAll("#mobile-nav-placeholder a").forEach(link => {
               const href = link.getAttribute("href");
@@ -40,7 +40,7 @@
               injectedMobileNav.classList.toggle("open");
             });
   
-            // ✅ Click outside to close menu
+            // Click outside to close
             document.addEventListener("click", (event) => {
               const isClickInsideMenu = injectedMobileNav.contains(event.target);
               const isClickOnButton = mobileMenuBtn.contains(event.target);

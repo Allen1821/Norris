@@ -1,7 +1,7 @@
 (() => {
-    const pathPrefix = (window.location.pathname === "/" || window.location.pathname.endsWith("index.html"))
-      ? "" // root
-      : "../"; // subpages
+    const path = window.location.pathname;
+    const isRoot = path === "/" || path.endsWith("/index.html");
+    const pathPrefix = isRoot ? "" : "../";
   
     fetch(`${pathPrefix}footer/footer.html`)
       .then(response => response.text())
