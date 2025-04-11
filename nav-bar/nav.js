@@ -1,4 +1,4 @@
-fetch("/nav-bar/nav.html")
+fetch("../nav-bar/nav.html")
   .then(response => response.text())
   .then(htmlString => {
     const nav = new DOMParser()

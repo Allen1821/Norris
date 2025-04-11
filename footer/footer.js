@@ -1,4 +1,4 @@
-fetch("/footer/footer.html")
+fetch("../footer/footer.html")
   .then(response => response.text())
   .then(htmlString => {
     const footer = new DOMParser()
