@@ -13,29 +13,7 @@
   }
   window.addEventListener('scroll', handleHeaderScroll);
 
-  /* ============================================================
-     Mobile Navigation
-  ============================================================ */
-  function setupMobileNavigation() {
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav');
 
-    mobileBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-
-    // Toggle dropdown menus in mobile nav
-    const mobileDropdowns = document.querySelectorAll('.mobile-nav .dropdown');
-    mobileDropdowns.forEach(dropdown => {
-      const trigger = dropdown.querySelector('.mobile-dropdown-trigger');
-      if (trigger) {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          dropdown.classList.toggle('active');
-        });
-      }
-    });
-  }
 
   /* ============================================================
      Smooth Scrolling for Anchor Links
@@ -224,7 +202,6 @@
      Initialization on DOMContentLoaded
   ============================================================ */
   document.addEventListener('DOMContentLoaded', function() {
-    setupMobileNavigation();
     setupSmoothScrolling();
     handleHashOnLoad();
     animateOnScroll();
