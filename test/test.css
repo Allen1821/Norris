@@ -1,0 +1,616 @@
+
+
+
+
+:root {
+  --primary: #1a3863;
+  --secondary: #ffffff;
+  --accent: #003d68;
+  --light-accent: #e0f2ff;
+  --light: #197bdd;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray: #0d3d66;
+  --light-gray: #e9ecef;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+/* Header Styles */
+header {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.logo-container { display: flex; align-items: center; }
+.logo {
+  width: 220px;
+  height: 60px;
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem; /* Adjusted gap */
+}
+.main-nav a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem; /* Adjusted size */
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0; /* Add padding for better click area */
+}
+.main-nav a:hover {
+  color: var(--accent);
+}
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px; /* Adjusted position */
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+.main-nav a:hover::after {
+  width: 100%;
+}
+.header-cta {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+.header-cta:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Container Utility */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(90deg, rgba(26,56,99,0.9) 0%, rgba(50,130,184,0.8) 100%), url('/api/placeholder/1600/700') center center/cover no-repeat; /* Added fallback background */
+  color: var(--white);
+  overflow: hidden;
+  position: relative; /* Needed for potential overlay */
+}
+.hero-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center; /* Vertically center content */
+  min-height: 500px; /* Ensure minimum height */
+}
+.hero-content {
+  width: 50%;
+  padding: 4rem 2rem 4rem 3rem; /* Adjusted padding */
+  z-index: 1; /* Ensure text is above image if overlapping */
+}
+.hero-image {
+  width: 50%;
+  height: 500px; /* Match min-height */
+  /* background-image: url('/api/placeholder/800/600'); */ /* Let img tag handle it */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+.hero-image img {
+  display: block; /* Remove extra space below image */
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Slightly adjusted */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.hero-content p {
+  font-size: 1.2rem; /* Slightly adjusted */
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px; /* Limit text width */
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem; /* Adjusted padding */
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent; /* Base border */
+  text-align: center;
+}
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background-color: #0078cc;
+  border-color: #0078cc;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Section Base Styles */
+.section {
+  padding: 4rem 1rem; /* Adjusted padding */
+}
+.section-light { background-color: var(--white); }
+.section-dark  { background-color: var(--light-gray); }
+.section-accent{ background-color: var(--light-accent); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-header h2 {
+  font-size: 2.2rem; /* Adjusted size */
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.8rem; /* Adjusted padding */
+}
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px; /* Adjusted width */
+  height: 3px;
+  background: var(--accent);
+}
+.section-header p {
+  font-size: 1.1rem; /* Adjusted size */
+  color: var(--gray);
+  max-width: 800px;
+  margin: 1rem auto 0; /* Add top margin */
+}
+
+/* Overview */
+.overview-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.overview-content { flex: 1; } /* Allow content to take space */
+.overview-content h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+.overview-content p {
+  font-size: 1.05rem; /* Adjusted size */
+  margin-bottom: 1.5rem;
+}
+.overview-images {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1rem;
+  flex: 1; /* Allow images to take space */
+}
+.overview-image {
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.overview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.overview-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Capabilities */
+.capabilities-grid,
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Fits 5 in wide view */
+  gap: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  .capabilities-grid,
+  .machine-grid {
+    grid-template-columns: repeat(5, 1fr); /* Force 5 per row on wide screens */
+  }
+}
+
+
+.capability-card {
+  text-align: center;
+  background-color: var(--white);
+  padding: 2rem 1.5rem; /* Adjusted padding */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  height: 100%; /* Make cards equal height */
+}
+.capability-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.capability-icon {
+  height: 60px; /* Adjusted size */
+  width: 60px;  /* Adjusted size */
+  background-color: var(--light-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem; /* Adjusted size */
+  color: var(--primary);
+  flex-shrink: 0; /* Prevent icon shrinking */
+}
+.capability-card h3 {
+  font-size: 1.2rem; /* Adjusted size */
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.capability-card p {
+  color: var(--gray);
+  font-size: 0.9rem; /* Adjusted size */
+  flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Equipment Tabs */
+.equipment-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem; /* Increased margin */
+  gap: 0.5rem; /* Add gap between tabs */
+}
+.equipment-tab {
+  padding: 0.7rem 1.3rem; /* Adjusted padding */
+  margin: 0; /* Remove margin, use gap instead */
+  background-color: var(--white);
+  border: 1px solid var(--light-gray); /* Slightly thinner border */
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  font-size: 0.9rem; /* Smaller font size */
+}
+.equipment-tab.active,
+.equipment-tab:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+/* Equipment Categories */
+.equipment-category {
+  display: none; /* Controlled by JS */
+  margin-bottom: 3rem;
+  transition: opacity 0.4s ease-in-out; /* Add fade transition */
+  opacity: 1; /* Start visible if display is block */
+}
+.equipment-category.active {
+  display: block;
+  /* animation: fadeIn 0.5s ease forwards; remove default animation, use JS */
+}
+
+/* Remove Keyframe animation if using JS transition */
+/* @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+} */
+
+.equipment-category-title {
+  color: var(--primary);
+  font-size: 1.6rem; /* Adjusted size */
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+/* Machine Grid and Cards */
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Force exactly 4 cards per row */
+  grid-gap: 2rem;
+  margin-bottom: 3rem; /* Keep margin */
+}
+
+.machine-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  height: 100%; /* Ensure cards in a row have same height */
+}
+
+.machine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Adjusted hover shadow */
+}
+
+.machine-card.highlighted {
+  border: 2px solid var(--accent);
+  position: relative;
+}
+
+.machine-card.highlighted::after {
+  content: 'Premium Model';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--accent);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem; /* Adjusted size */
+  font-weight: bold;
+}
+
+.machine-image {
+  height: 200px; /* Adjusted height */
+  overflow: hidden;
+}
+
+.machine-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.machine-card:hover .machine-image img {
+  transform: scale(1.05);
+}
+
+.machine-details {
+  padding: 1.5rem;
+  flex-grow: 1; /* Allows this section to grow */
+  display: flex;
+  flex-direction: column; /* Stack title, specs, quantity vertically */
+}
+
+.machine-details h4 {
+  font-size: 1.2rem; /* Adjusted size */
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 0.5rem;
+}
+
+.machine-specs {
+  list-style: none;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Allows specs list to fill space */
+}
+
+.machine-specs li {
+  margin-bottom: 0.6rem; /* Increased spacing */
+  font-size: 0.9rem; /* Adjusted size */
+  display: flex;
+  align-items: baseline;
+  line-height: 1.4; /* Improve readability */
+}
+
+.machine-specs li span {
+  font-weight: 600;
+  color: var(--primary);
+  margin-right: 0.5rem;
+  min-width: 120px; /* Adjusted width */
+  display: inline-block; /* Ensure width is respected */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.machine-quantity {
+  margin-top: auto; /* Pushes to the bottom */
+  background-color: var(--light-accent);
+  color: var(--primary);
+  padding: 0.5rem 0.8rem; /* Adjusted padding */
+  border-radius: 5px;
+  font-weight: 600;
+  display: inline-block; /* Fit content width */
+  text-align: center;
+  font-size: 0.85rem; /* Adjusted size */
+  align-self: flex-start; /* Align to the start (left) */
+}
+
+
+/* Specs Section */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive */
+  gap: 1.5rem;
+}
+.specs-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--accent);
+  height: 100%; /* Equal height */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.specs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Adjusted hover */
+}
+.specs-icon {
+  height: 50px; /* Adjusted size */
+  width: 50px;  /* Adjusted size */
+  background-color: var(--light-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.6rem; /* Adjusted size */
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.specs-card h3 {
+  font-size: 1.2rem; /* Adjusted size */
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.specs-list {
+  list-style: none;
+  flex-grow: 1; /* Take remaining space */
+}
+.specs-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--light-gray); /* Lighter border */
+  display: flex;
+  /* align-items: center; Removed baseline might be better */
+  font-size: 0.9rem; /* Adjusted size */
+}
+.specs-list li:last-child {
+  border-bottom: none;
+}
+.specs-list li span {
+  font-weight: 600;
+  color: var(--primary);
+  margin-right: 0.5rem;
+  min-width: 80px; /* Adjusted width */
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .header-container { padding: 0.8rem 1rem; }
+  .main-nav ul { gap: 1rem; }
+  .main-nav a { font-size: 0.95rem; }
+  .container { padding: 0 1rem; }
+  .hero-content h1 { font-size: 2.5rem; }
+  .hero-content p { font-size: 1.1rem; }
+  .section-header h2 { font-size: 2rem; }
+  .section-header p { font-size: 1rem; }
+  /* Keep 2 columns for machines until smaller screens */
+   .machine-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
+
+@media (max-width: 992px) {
+  .header-container { flex-wrap: wrap; justify-content: center; } /* Allow header items to wrap */
+  .main-nav { order: 3; width: 100%; margin-top: 0.5rem; } /* Move nav below logo/cta */
+  .main-nav ul { justify-content: center; }
+  .header-cta { margin-top: 0.5rem; } /* Add space if nav wraps */
+
+  .hero-container { flex-direction: column; }
+  .hero-content,
+  .hero-image { width: 100%; }
+  .hero-content { padding: 3rem 1rem; text-align: center; }
+  .hero-image { height: 350px; }
+  .hero-buttons { justify-content: center;}
+
+  .overview-container { flex-direction: column; gap: 2rem;}
+  .overview-images { grid-template-columns: repeat(2, 1fr); } /* Keep 2 columns for images */
+
+  .specs-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+   /* Optional: Stack header items vertically */
+   /* .header-container { flex-direction: column; }
+   .main-nav { margin-top: 1rem; }
+   .header-cta { margin-top: 1rem; } */
+   .main-nav { display: none; } /* Hide nav on small screens (consider hamburger menu) */
+
+
+  .hero-content h1 { font-size: 2.2rem; }
+  .hero-content p { font-size: 1rem; }
+  .section-header h2 { font-size: 1.8rem; }
+
+  .capabilities-grid { grid-template-columns: 1fr; } /* Stack capabilities */
+  .machine-grid { grid-template-columns: 1fr; } /* Stack machines */
+  .specs-grid { grid-template-columns: 1fr; } /* Stack specs */
+
+  .equipment-tabs { justify-content: flex-start; } /* Align tabs left */
+  .equipment-tab { padding: 0.6rem 1rem; font-size: 0.85rem; }
+
+  .machine-card { flex-direction: column; } /* Ensure column layout */
+  .machine-image { height: 180px; }
+
+  .overview-images { grid-template-columns: 1fr; } /* Stack overview images */
+
+}
+
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 80%; }
+  .btn-secondary { margin-left: 0; margin-top: 1rem;}
+  .logo { width: 180px; height: 50px; font-size: 1.2rem;}
+  .header-cta { padding: 0.5rem 1rem; font-size: 0.9rem;}
+}

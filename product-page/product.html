@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Product Showcase - Norris Precision Manufacturing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="product_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="logo" onclick="window.location = '../index.html'"></div>
+      </div>
+
+      <!-- Navigation Placeholder -->
+      <div id="nav-placeholder"></div>
+      <script src="../nav-bar/nav.js"></script>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Placeholder -->
+    <div id="mobile-nav-placeholder"></div>
+    <script src="../mobile-nav/mobile.js"></script>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Title -->
+    <section class="page-title">
+      <h1>Product Showcase</h1>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+      <div class="product-grid">
+        <!-- 15 Product Items -->
+        <!-- For each product, the thumbnail file is used in the src 
+             and the high-res file is referenced via data-hires.
+             Product numbering: 0 to 14 -->
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_0_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_0.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_1_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_1.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_2_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_2.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_3_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_3.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_4_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_4.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_5_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_5.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_6_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_6.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_7_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_7.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_8_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_8.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_9_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_9.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_10_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_10.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_11_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_11.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_12_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_12.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_13_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_13.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+        <div class="product-item">
+          <img src="../product-page/showcase/product_showcase_14_thumbnail.jpg" 
+               data-hires="../product-page/showcase/product_showcase_14.jpg" 
+               alt="Precision component" class="product-image galleryImg" onclick="showFullSizeImage(event)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Size Image Viewer -->
+    <div class="image-container" onclick="hideFullSizeImage(event)">
+      <div class="image-wrapper">
+        <div class="arrow left-arrow" onclick="prevImg(event)">&#10094;</div>
+        <img src="" alt="Precision component" id="fullSizeImage">
+        <div class="arrow right-arrow" onclick="nextImg(event)">&#10095;</div>
+      </div>
+      <div class="close-btn" onclick="hideFullSizeImage(event)">&times;</div>
+    </div>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+  <script src="../footer/footer.js"></script>
+  <!-- External JavaScript for product functionality -->
+  <script src="product.js" defer></script>
+</body>
+</html>

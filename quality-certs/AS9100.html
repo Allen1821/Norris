@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="certifications.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- PDF.js for PDF preview -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -56,7 +58,7 @@
           <p>AS9100 certification ensures that our quality management system meets the requirements of the aerospace industry, which includes:</p>
           <ul>
             <li>Enhanced product safety requirements</li>
-            <li>risk management processes</li>
+            <li>Risk management processes</li>
             <li>Configuration management controls</li>
             <li>Prevention of counterfeit parts</li>
             <li>Product conformity and on-time delivery focus</li>
@@ -69,7 +71,7 @@
           <h2>Benefits to Our Customers</h2>
           <p>Our AS9100 certification provides our customers with assurance that:</p>
           <ul>
-            <li>All  are manufactured under strict quality controls</li>
+            <li>All products are manufactured under strict quality controls</li>
             <li>Processes are standardized and consistently applied</li>
             <li>Risk management is integrated into all operations</li>
             <li>Product safety and conformity are prioritized</li>
@@ -81,15 +83,37 @@
         <!-- Sidebar Column -->
         <div class="certification-sidebar">
           <h3>Current Certificate</h3>
-          <div class="pdf-container">
-            <div class="pdf-icon">
-              <i class="far fa-file-pdf"></i>
+          <!-- Certificate Info First -->
+          <div class="cert-info-container">
+            <div class="pdf-details">
+              <div class="pdf-icon">
+                <i class="far fa-file-pdf"></i>
+              </div>
+              <h4>AS9100D Certificate</h4>
+              <p>Valid: Jan 2023 - Jan 2026</p>
+              <a href="../certifications/AS9100D-ISO9001-2015.pdf" class="download-btn" download>
+                <i class="fas fa-download"></i> Download PDF
+              </a>
             </div>
-            <h4>AS9100D Certificate</h4>
-            <p>Valid: Jan 2023 - Jan 2026</p>
-            <a href="../certifications/AS9100D-ISO9001-2015.pdf" class="download-btn" download>
-              <i class="fas fa-download"></i> Download PDF
-            </a>
+          </div>
+
+          <!-- Separate PDF Preview Container (Larger) -->
+          <div class="pdf-preview-wrapper">
+            <h3>Certificate Preview</h3>
+            <div class="pdf-preview-container">
+              <div
+              id="pdf-preview"
+              class="clickable-preview"
+              data-pdf-url="../certifications/AS9100D-ISO9001-2015.pdf"
+            ></div>
+
+              <div class="preview-message">Click to view larger</div>
+              <div class="preview-controls">
+                <button id="prev-page" class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">?</span></span>
+                <button id="next-page" class="page-btn"><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
           </div>
           
           <div class="other-certs">
@@ -103,9 +127,7 @@
             <a href="../quality-certs/ITAR.html" class="cert-link">
               <i class="fas fa-certificate"></i> ITAR
             </a>
-            <a href="../quality-certs/fda.html" class="cert-link">
-              <i class="fas fa-certificate"></i> FDA
-            </a>
+
           </div>
         </div>
       </div>
@@ -125,8 +147,45 @@
   <div id="footer-placeholder"></div>
   <script src="../footer/footer.js"></script>
 
-  <script src="../script.js" defer></script>
+  <!-- PDF Preview (thumbnail) -->
+<div class="pdf-preview-container clickable-preview">
+  <div id="pdf-preview"></div>
+  <div class="preview-message">Click to view larger</div>
+  <div class="preview-controls">
+    <button id="prev-page" class="page-btn">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <span id="page-info">
+      Page <span id="current-page">1</span> of <span id="total-pages">?</span>
+    </span>
+    <button id="next-page" class="page-btn">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</div>
 
+<!-- PDF Modal Overlay -->
+<div id="pdf-modal" class="pdf-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <!-- This is where your modal canvas will be injected -->
+    <div id="modal-pdf-preview"></div>
+    <div class="modal-controls">
+      <button id="modal-prev-page" class="page-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span id="modal-page-info">
+        Page <span id="modal-current-page">1</span> of <span id="modal-total-pages">?</span>
+      </span>
+      <button id="modal-next-page" class="page-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../script.js"></script>
+<script src="certifications.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,9 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Eurostile&display=swap'); /* If available on Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DIN+Pro&display=swap'); /* If available on Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;500;600;700&display=swap');
+
 /* Base */
 html {
   scroll-behavior: smooth;
@@ -12,6 +18,10 @@ html {
   --white: #ffffff;
   --body-bg: #f5f5f5;
   --text-color: #333333;
+
+    /* Font variables */
+  --heading-font: 'Rajdhani', sans-serif; /* Recommended technical font */
+  --body-font: 'Titillium Web', 'Roboto', sans-serif; /* Secondary option */
 }
 * {
   box-sizing: border-box;
@@ -19,11 +29,18 @@ html {
   padding: 0;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--body-font);
   background: var(--body-bg);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.6; 
 }
+
+/* Update heading fonts */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
 .logo-container {
   width: 150px;
   height: 60px;
@@ -202,36 +219,54 @@ header {
 /* Hero Section */
 .hero {
   position: relative;
+  overflow: hidden;   /* clip anything outside the box */
   height: 90vh;
   min-height: 500px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 10%;
+  /* remove display:flex if you only used it to line up the video */
 }
 
-#hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(30%) saturate(110%);
-  transition: all 0.5s ease;
-  pointer-events: none; /* Prevents user interaction with the video */
+
+/* ────────────────────────────────
+   HERO (parallax‑style pinned video)
+   ──────────────────────────────── */
+
+/* Section footprint so the rest of the page knows how tall the hero is */
+.hero {
+	/* keeps previous cascade intact */
+	position: relative;
+	overflow: hidden;
+	height: 90vh;   /* tweak if you need taller/shorter */
+	min-height: 500px;
 }
+
+/* Pin the video to the viewport, *not* the .hero box */
+#hero-video {
+	position: fixed;                        /* key change */
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	-o-object-fit: cover;
+	   object-fit: cover;
+	/* smoother hardware‑accelerated scrolling */
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
+	/* stay behind headings/buttons */
+	z-index: -1;
+	pointer-events: none;                   /* don’t block clicks/scroll */
+	will-change: transform;
+}
+
+
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: 650px;
   padding: 0 2rem;
   color: var(--white);
-  position: relative;
-  z-index: 1;
-  text-align: left;
 }
+
 
 .hero-title {
   font-size: 3.2rem;
@@ -331,7 +366,7 @@ header {
   padding-left: 10%;
 }
 #hero-video {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -505,17 +540,28 @@ header {
 .trusted-logos {
   display: flex;
   justify-content: center;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.trusted-logos img {
-  max-width: 150px;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+.trusted-company {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  background: var(--light-gray);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
-.trusted-logos img:hover {
-  opacity: 1;
+.trusted-company:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background: var(--light-blue);
+  color: var(--dark-blue);
 }
+
 
 /* Capabilities Section */
 .capabilities-section {
@@ -629,12 +675,17 @@ header {
   max-width: 1000px;
   margin: 0 auto;
 }
+/* apply to both DIVs and ANCHORS */
 .certification-item {
+  display: block;           /* so padding & width work */
+  text-decoration: none;    /* remove underline */
+  color: inherit;           /* keep your white (or inherited) text */
+  cursor: pointer;          /* show it’s clickable */
+  transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem 2rem;
   border-radius: 8px;
   min-width: 180px;
-  transition: all 0.3s ease;
 }
 .certification-item:hover {
   background: rgba(255, 255, 255, 0.2);

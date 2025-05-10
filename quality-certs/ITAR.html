@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="certifications.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- PDF.js for PDF preview -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -18,10 +20,9 @@
         <div class="logo" onclick="window.location = '../index.html'"></div>
       </div>
 
-  <!-- Navigation Placeholder -->
-  <div id="nav-placeholder"></div>
-  <script src="../nav-bar/nav.js"></script>
-
+      <!-- Navigation Placeholder -->
+      <div id="nav-placeholder"></div>
+      <script src="../nav-bar/nav.js"></script>
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="mobile-menu-btn">
@@ -32,7 +33,6 @@
     <!-- Mobile Navigation Placeholder -->
     <div id="mobile-nav-placeholder"></div>
     <script src="../mobile-nav/mobile.js"></script>
-  </header>
   </header>
 
   <!-- Main Content -->
@@ -86,12 +86,31 @@
               <i class="fas fa-download"></i> Download PDF
             </a>
           </div>
+          <!-- Certificate Preview -->
+          <div class="pdf-preview-wrapper">
+            <h3>Certificate Preview</h3>
+            <div class="pdf-preview-container">
+              <div
+              id="pdf-preview"
+              class="clickable-preview"
+              data-pdf-url="../certifications/itar.pdf"
+            ></div>
+            
+
+              <div class="preview-message">Click to view larger</div>
+              <div class="preview-controls">
+                <button id="prev-page" class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">?</span></span>
+                <button id="next-page" class="page-btn"><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
           <div class="other-certs">
             <h3>Other Certifications</h3>
             <a href="../quality-certs/AS9100.html" class="cert-link"><i class="fas fa-certificate"></i> AS9100D</a>
             <a href="../quality-certs/ISO 9001.html" class="cert-link"><i class="fas fa-certificate"></i> ISO 9001</a>
             <a href="../quality-certs/Nadcap.html" class="cert-link"><i class="fas fa-certificate"></i> Nadcap</a>
-            <a href="../quality-certs/fda.html" class="cert-link"><i class="fas fa-certificate"></i> FDA</a>
+
           </div>
         </div>
       </div>
@@ -110,6 +129,21 @@
   <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../footer/footer.js"></script>
+
+  <!-- PDF Modal Overlay -->
+  <div id="pdf-modal" class="pdf-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modal-pdf-preview"></div>
+      <div class="modal-controls">
+        <button id="modal-prev-page" class="page-btn"><i class="fas fa-chevron-left"></i></button>
+        <span id="modal-page-info">Page <span id="modal-current-page">1</span> of <span id="modal-total-pages">?</span></span>
+        <button id="modal-next-page" class="page-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
   <script src="../script.js" defer></script>
+  <script src="certifications.js"></script>
 </body>
 </html>

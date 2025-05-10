@@ -217,3 +217,9 @@
   window.nextImg = nextImg;
 
 })();
+
+
+// Parallax‐style scroll for hero video
+const hero      = document.querySelector('.hero');
+const heroVideo = document.getElementById('hero-video');
+
