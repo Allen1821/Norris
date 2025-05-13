@@ -3,8 +3,7 @@
     const isRoot = path === "/" || path.endsWith("/index.html");
     const pathPrefix = isRoot ? "" : "../";
   
-    fetch("/mobile-nav/mobile.html")
-
+    fetch(`${pathPrefix}mobile-nav/mobile.html`)
       .then(response => response.text())
       .then(htmlString => {
         const parser = new DOMParser();
