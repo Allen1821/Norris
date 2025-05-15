@@ -17,12 +17,9 @@
       <div class="logo-container">
         <div class="logo" onclick="window.location = '../index.html'"></div>
       </div>
-
-  <!-- Navigation Placeholder -->
-  <div id="nav-placeholder"></div>
-  <script src="../nav-bar/nav.js"></script>
-
-
+      <!-- Navigation Placeholder -->
+      <div id="nav-placeholder"></div>
+      <script src="../nav-bar/nav.js"></script>
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="mobile-menu-btn">
         <i class="fas fa-bars"></i>
@@ -33,23 +30,50 @@
     <div id="mobile-nav-placeholder"></div>
     <script src="../mobile-nav/mobile.js"></script>
   </header>
-
+  
   <!-- Main Content: Terms and Conditions -->
   <main class="terms-page">
     <section class="terms-section">
       <div class="terms-container">
         <div class="terms-sidebar">
           <div class="terms-file-list">
-            <div class="terms-file-item active" data-pdf="../certifications/terms-conditions.pdf">
-              <i class="fas fa-file-alt"></i> Terms & Conditions
+            <div id="terms-conditions-item"
+                 class="terms-file-item active"
+                 data-pdf="../certifications/terms-conditions.pdf">
+              <i class="fas fa-file-alt"></i> Terms &amp; Conditions
             </div>
-            <div class="terms-file-item" data-pdf="../certifications/quality-clauses.pdf">
+            <div id="quality-clauses-item"
+                 class="terms-file-item"
+                 data-pdf="../certifications/quality-clauses.pdf">
               <i class="fas fa-check-circle"></i> Quality Clauses
             </div>
           </div>
         </div>
         <div class="terms-viewer">
-          <iframe id="terms-frame" src="../certifications/terms-conditions.pdf" frameborder="0"></iframe>
+          <div class="pdf-controls">
+            <button id="download-pdf" class="primary-btn">
+              <i class="fas fa-download"></i> Download PDF
+            </button>
+            <span class="pdf-title">Terms &amp; Conditions</span>
+          </div>
+          <div class="pdf-container">
+            <div id="pdf-loading" class="pdf-loading">
+              <i class="fas fa-spinner fa-spin"></i> Loading PDF...
+            </div>
+            <iframe id="terms-frame"
+                    class="google-pdf-viewer"
+                    frameborder="0"
+                    style="display: none;"></iframe>
+            <div class="pdf-fallback">
+              <div class="fallback-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>PDF preview not available. Please download the document to view it.</p>
+                <button id="fallback-download" class="primary-btn">
+                  <i class="fas fa-download"></i> Download PDF
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -58,23 +82,66 @@
   <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../footer/footer.js"></script>
-  
-  <!-- Scripts -->
+
+  <!-- Page Script -->
   <script>
-    // PDF Switching Logic
     document.addEventListener('DOMContentLoaded', () => {
-      const fileItems = document.querySelectorAll('.terms-file-item');
-      const termsFrame = document.getElementById('terms-frame');
+      const fileItems         = document.querySelectorAll('.terms-file-item');
+      const termsFrame        = document.getElementById('terms-frame');
+      const downloadBtn       = document.getElementById('download-pdf');
+      const fallbackDownload  = document.getElementById('fallback-download');
+      const pdfTitle          = document.querySelector('.pdf-title');
+      const pdfLoading        = document.getElementById('pdf-loading');
+      let activePdfUrl        = '../certifications/terms-conditions.pdf';
+
+      // Show the PDF directly in the iframe (native browser viewer)
+      function updatePdfViewer(pdfUrl) {
+        const absolute = getAbsoluteUrl(pdfUrl);
+        termsFrame.src = absolute;
+        termsFrame.style.display       = 'block';
+        pdfLoading.style.display       = 'none';
+        document.querySelector('.pdf-fallback').style.display = 'none';
+      }
+
+      // Utility to resolve a relative URL to absolute
+      function getAbsoluteUrl(url) {
+        const a = document.createElement('a');
+        a.href = url;
+        return a.href;
+      }
+
+      // Initial load
+      updatePdfViewer(activePdfUrl);
+
+      // Sidebar click → swap PDF
       fileItems.forEach(item => {
         item.addEventListener('click', () => {
           fileItems.forEach(el => el.classList.remove('active'));
           item.classList.add('active');
-          const pdfFile = item.getAttribute('data-pdf');
-          termsFrame.src = pdfFile;
+
+          activePdfUrl = item.getAttribute('data-pdf');
+          pdfTitle.textContent = item.textContent.trim();
+          pdfLoading.style.display = 'flex';
+          updatePdfViewer(activePdfUrl);
         });
       });
+
+      // Download buttons
+      downloadBtn.addEventListener('click', () => {
+        window.open(getAbsoluteUrl(activePdfUrl), '_blank');
+      });
+      fallbackDownload.addEventListener('click', () => {
+        window.open(getAbsoluteUrl(activePdfUrl), '_blank');
+      });
+
+      // If someone links in with #quality-clauses-item
+      if (window.location.hash === '#quality-clauses-item') {
+        const qc = document.getElementById('quality-clauses-item');
+        if (qc) qc.click();
+      }
     });
   </script>
+
   <script src="../script.js" defer></script>
 </body>
 </html>
