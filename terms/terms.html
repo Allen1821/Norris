@@ -240,13 +240,16 @@
     
     /* Canvas for PDF.js - Improving visual quality */
     #pdf-canvas {
-      display: block;
-      margin: 0 auto;
-      image-rendering: -webkit-optimize-contrast;  /* Chrome/Safari */
-      image-rendering: crisp-edges;                /* Firefox */
-      -ms-interpolation-mode: nearest-neighbor;    /* IE */
-      backface-visibility: hidden;                 /* Prevents blurry text */
-    }
+    display: block;
+    margin: 0 auto;
+    /* let the browser handle subpixel anti-aliasing */
+    image-rendering: auto;
+    /* smoother interpolation in IE/Edge */
+    -ms-interpolation-mode: bicubic;
+    /* keep text crisp by forcing GPU compositing */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
     
     /* Responsive Adjustments */
     @media (max-width: 768px) {
@@ -504,62 +507,47 @@
       
       // Render a specific PDF page with PDF.js
       function renderPage(pageNum) {
-        pageRendering = true;
-        
-        // Show loading state while rendering
-        pdfLoading.style.display = 'flex';
-        
-        // Get page from PDF document
-        pdfDoc.getPage(pageNum).then(function(page) {
-          // Determine scale to fit page width
-          const viewport = page.getViewport({ scale: 1.0 });
-          const parent = canvas.parentElement;
-          const containerWidth = parent.clientWidth;
-          
-          // Adjust scale based on device pixel ratio for better quality on hi-DPI displays
-          scale = (containerWidth / viewport.width) * 1.2; // Slightly larger for better quality
-          
-          // On mobile, set a minimum scale factor to ensure text is readable
-          if (isMobile && scale < 1.2) {
-            scale = 1.2;
+      pageRendering = true;
+      pdfLoading.style.display = 'flex';
+      pdfDoc.getPage(pageNum).then(page => {
+        const viewport     = page.getViewport({ scale: 1.0 });
+        const parent       = canvas.parentElement;
+        const containerW   = parent.clientWidth;
+        const isMobile     = window.matchMedia('(max-width: 768px)').matches;
+
+        // fit to width…
+        let initialScale = containerW / viewport.width;
+        scale = initialScale;
+
+        // …but on mobile ensure it's never too small:
+        if (isMobile && initialScale < 1.5) {
+          scale = 1.5;
+        }
+
+        const scaledViewport = page.getViewport({ scale });
+        // …rest of your existing canvas setup/render code…
+        canvas.height = scaledViewport.height * pixelRatio;
+        canvas.width  = scaledViewport.width  * pixelRatio;
+        canvas.style.height = `${scaledViewport.height}px`;
+        canvas.style.width  = `${scaledViewport.width}px`;
+        ctx.scale(pixelRatio, pixelRatio);
+
+        page.render({
+          canvasContext: ctx,
+          viewport:      scaledViewport,
+          enableWebGL:   true,
+          renderInteractiveForms: true
+        }).promise.then(() => {
+          pageRendering = false;
+          pdfLoading.style.display = 'none';
+          currentPageEl.textContent = pageNum;
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
           }
-          
-          // Prepare canvas using PDF page dimensions, accounting for device pixel ratio
-          const scaledViewport = page.getViewport({ scale: scale });
-          canvas.height = scaledViewport.height * pixelRatio;
-          canvas.width = scaledViewport.width * pixelRatio;
-          canvas.style.height = `${scaledViewport.height}px`;
-          canvas.style.width = `${scaledViewport.width}px`;
-          
-          // Apply device pixel ratio scaling for sharp rendering
-          ctx.scale(pixelRatio, pixelRatio);
-          
-          // Render PDF page into canvas context
-          const renderContext = {
-            canvasContext: ctx,
-            viewport: scaledViewport,
-            enableWebGL: true,
-            renderInteractiveForms: true
-          };
-          
-          const renderTask = page.render(renderContext);
-          
-          // Wait for rendering to finish
-          renderTask.promise.then(function() {
-            pageRendering = false;
-            pdfLoading.style.display = 'none';
-            
-            // Update page counter
-            currentPageEl.textContent = pageNum;
-            
-            // If another page rendering is pending, render that page
-            if (pageNumPending !== null) {
-              renderPage(pageNumPending);
-              pageNumPending = null;
-            }
-          });
         });
-      }
+      });
+    }
       
       // Queue new page rendering if there's already a rendering in progress
       function queueRenderPage(pageNum) {
