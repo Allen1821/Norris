@@ -156,7 +156,7 @@
 /* 1. MACHINING - Revised Layout with Separate Image */
 .machining-hero {
   padding: 6rem 2rem;
-  background: linear-gradient(to right, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(to right, #f8f9fa 0%, #e9eceffb 100%);
   position: relative;
   overflow: hidden;
 }
@@ -190,7 +190,7 @@
 .machining-content {
   flex: 1;
   padding: 3rem;
-  background: var(--white, #ffffff);
+  background: var(--white, #2e6cbd);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   position: relative;
@@ -586,22 +586,23 @@
   margin-bottom: 0.75rem;
 }
 
-/* 4. LEAN - Gradient Background with Feature Icons */
+/* 4. LEAN - Updated with Image and Enhanced Layout */
 .lean-section {
   padding: 8rem 2rem;
   background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3c6e 100%);
   color: var(--white);
+  position: relative;
 }
 
 .lean-container {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .lean-heading {
   color: var(--white);
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .lean-heading::after {
@@ -610,11 +611,57 @@
   transform: translateX(-50%);
 }
 
+/* New content wrapper for text and image */
+.lean-content-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+  align-items: center;
+}
+
+.lean-text-content {
+  flex: 1;
+}
+
 .lean-intro {
   color: var(--white);
-  max-width: 800px;
-  margin: 0 auto 3rem;
   opacity: 0.9;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Image container styling */
+.lean-image-container {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.lean-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.lean-image-container:hover .lean-image {
+  transform: scale(1.03);
+}
+
+.lean-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+  pointer-events: none;
 }
 
 .lean-features {
@@ -628,11 +675,65 @@
   padding: 2rem;
   border-radius: 12px;
   transition: transform 0.3s ease, background 0.3s ease;
+  text-align: center;
 }
 
 .lean-feature:hover {
   transform: translateY(-10px);
   background: rgba(255, 255, 255, 0.2);
+}
+
+.feature-icon {
+  font-size: 2.75rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.lean-feature:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 992px) {
+  .lean-content-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .lean-text-content {
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lean-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .lean-heading {
+    font-size: 2rem;
+  }
+  
+  .lean-image-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .lean-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .lean-section {
+    padding: 5rem 1.5rem;
+  }
 }
 
 /* Responsive adjustments for manufacturing sections */
