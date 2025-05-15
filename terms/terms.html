@@ -109,7 +109,7 @@
     .pdf-container {
       flex-grow: 1;
       position: relative;
-      overflow: hidden;
+      overflow: auto;  /* Changed from 'hidden' to allow scrolling */
       background-color: #f5f5f5;
       border: 1px solid #ddd;
     }
@@ -174,7 +174,7 @@
     
     /* PDF Navigation Controls */
     .pdf-navigation {
-      position: absolute;
+      position: fixed;  /* Changed from absolute to fixed */
       bottom: 20px;
       left: 0;
       right: 0;
@@ -238,10 +238,14 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
     
-    /* Canvas for PDF.js */
+    /* Canvas for PDF.js - Improving visual quality */
     #pdf-canvas {
       display: block;
       margin: 0 auto;
+      image-rendering: -webkit-optimize-contrast;  /* Chrome/Safari */
+      image-rendering: crisp-edges;                /* Firefox */
+      -ms-interpolation-mode: nearest-neighbor;    /* IE */
+      backface-visibility: hidden;                 /* Prevents blurry text */
     }
     
     /* Responsive Adjustments */
@@ -302,6 +306,7 @@
       .pdf-navigation {
         bottom: 15px;
         opacity: 1;
+        position: fixed;
       }
       
       /* Better touch targets */
@@ -442,6 +447,7 @@
       let canvas              = null;
       let ctx                 = null;
       let scale               = 1.0;
+      let pixelRatio          = window.devicePixelRatio || 1;
       
       // Detect if we should use PDF.js or iframe
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -468,7 +474,7 @@
           const pdfContainer = document.querySelector('.pdf-container');
           pdfContainer.appendChild(canvas);
           
-          ctx = canvas.getContext('2d');
+          ctx = canvas.getContext('2d', { alpha: false, antialias: true });
         }
         
         return canvas;
@@ -509,17 +515,31 @@
           const viewport = page.getViewport({ scale: 1.0 });
           const parent = canvas.parentElement;
           const containerWidth = parent.clientWidth;
-          scale = containerWidth / viewport.width;
           
-          // Prepare canvas using PDF page dimensions
+          // Adjust scale based on device pixel ratio for better quality on hi-DPI displays
+          scale = (containerWidth / viewport.width) * 1.2; // Slightly larger for better quality
+          
+          // On mobile, set a minimum scale factor to ensure text is readable
+          if (isMobile && scale < 1.2) {
+            scale = 1.2;
+          }
+          
+          // Prepare canvas using PDF page dimensions, accounting for device pixel ratio
           const scaledViewport = page.getViewport({ scale: scale });
-          canvas.height = scaledViewport.height;
-          canvas.width = scaledViewport.width;
+          canvas.height = scaledViewport.height * pixelRatio;
+          canvas.width = scaledViewport.width * pixelRatio;
+          canvas.style.height = `${scaledViewport.height}px`;
+          canvas.style.width = `${scaledViewport.width}px`;
+          
+          // Apply device pixel ratio scaling for sharp rendering
+          ctx.scale(pixelRatio, pixelRatio);
           
           // Render PDF page into canvas context
           const renderContext = {
             canvasContext: ctx,
-            viewport: scaledViewport
+            viewport: scaledViewport,
+            enableWebGL: true,
+            renderInteractiveForms: true
           };
           
           const renderTask = page.render(renderContext);
@@ -587,7 +607,12 @@
         currentPage = 1;
         
         // Load and initialize PDF document
-        const loadingTask = window.pdfjsLib.getDocument(absoluteUrl);
+        const loadingTask = window.pdfjsLib.getDocument({
+          url: absoluteUrl,
+          cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdfjs-dist/3.4.120/cmaps/',
+          cMapPacked: true,
+          enableXfa: true
+        });
         loadingTask.promise.then(function(pdf) {
           pdfDoc = pdf;
           totalPages = pdf.numPages;
@@ -705,11 +730,18 @@
           const newIsTablet = window.matchMedia('(max-width: 1024px)').matches && !newIsMobile;
           const newUseAdvancedRenderer = newIsMobile || newIsTablet;
           
+          // Update pixel ratio which may have changed (e.g., rotated device)
+          pixelRatio = window.devicePixelRatio || 1;
+          
           // If renderer type changed, reload the PDF
           if (wasMobile !== newUseAdvancedRenderer) {
             loadPdf(activePdfUrl);
           } else if (newUseAdvancedRenderer && pdfDoc) {
             // If still using PDF.js, just re-render the current page
+            // Reset context to clear any transformations
+            if (ctx) {
+              ctx.setTransform(1, 0, 0, 1, 0, 0);
+            }
             renderPage(currentPage);
           }
         }, 250);
