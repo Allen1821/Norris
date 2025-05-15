@@ -126,6 +126,11 @@ function nextImg(event) {
   }
 }
 
+document.querySelectorAll('.arrow').forEach(arrow => {
+  arrow.addEventListener('touchstart', e => e.stopPropagation(), {passive: true});
+  arrow.addEventListener('touchend',   e => e.stopPropagation());
+});
+
 // Update the state of navigation arrows based on the current image
 function changeArrows() {
   const currentIndex = images.findIndex(item => item === imgUrl);
@@ -166,22 +171,22 @@ function handleTouchMove(event) {
 
 function handleTouchEnd() {
   if (!fullSizeImageOpen) return;
-  
-  const swipeThreshold = 75; // Minimum distance for a swipe
-  const swipeDistance = touchEndX - touchStartX;
-  
-  if (swipeDistance > swipeThreshold) {
-    // Swipe right - show previous image
+
+  const swipeThreshold = 75;
+  const swipeDistance  = touchEndX - touchStartX;
+
+  // ignore tiny moves
+  if (Math.abs(swipeDistance) < 10) return;
+
+  if (swipeDistance >  swipeThreshold) {
     prevImg(new Event('swipe'));
   } else if (swipeDistance < -swipeThreshold) {
-    // Swipe left - show next image
     nextImg(new Event('swipe'));
   }
-  
-  // Reset values
-  touchStartX = 0;
-  touchEndX = 0;
+
+  touchStartX = touchEndX = 0;
 }
+
 
 // Keyboard navigation for the image viewer
 document.addEventListener('keyup', function(e) {
