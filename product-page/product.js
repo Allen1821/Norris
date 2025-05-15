@@ -157,6 +157,7 @@ let touchEndX = 0;
 
 function handleTouchStart(event) {
   touchStartX = event.touches[0].clientX;
+  touchEndX   = touchStartX;
 }
 
 function handleTouchMove(event) {
