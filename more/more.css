@@ -1,65 +1,6 @@
 /* Capabilities Page Specific Styles */
 
-/* Hero Section */
-.capabilities-hero {
-  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-  padding: 8rem 2rem 6rem;
-  text-align: center;
-  position: relative;
-}
 
-.capabilities-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('../assets/manufacturing-bg.jpg') center/cover;
-  opacity: 0.1;
-  z-index: 0;
-}
-
-.capabilities-hero .container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.capabilities-hero .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  color: var(--white);
-}
-
-.capabilities-hero .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-
-.capabilities-hero .hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.nav-buttons .cta-btn {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  min-width: 120px;
-}
 
 /* Capability Sections */
 .capability-section {
