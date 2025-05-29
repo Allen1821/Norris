@@ -199,7 +199,7 @@ body {
 @media (min-width: 1200px) {
   .capabilities-grid,
   .machine-grid {
-    grid-template-columns: repeat(5, 1fr); /* Force 5 per row on wide screens */
+    grid-template-columns: repeat(4, 1fr); /* Force 5 per row on wide screens */
   }
 }
 
