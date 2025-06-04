@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Coming Soon – Metal Finishing | Norris Precision</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <style>
+
+
+
+
+
+    /* Coming Soon Section */
+    .coming-soon-hero {
+      min-height: 70vh;
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #2c5282 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .coming-soon-content {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .coming-soon-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .coming-soon-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* What's Coming Section */
+    .whats-coming {
+      padding: 6rem 2rem;
+      background: var(--light-gray);
+    }
+
+    .whats-coming-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-blue);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    .feature-description {
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent-blue);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent-blue);
+    }
+
+    .cta-btn:hover {
+      background: transparent;
+      color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .coming-soon-title {
+        font-size: 2.5rem;
+      }
+
+      .coming-soon-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="logo" onclick="window.location = '../index.html'"></div>
+      </div>
+
+      <!-- Navigation Placeholder -->
+      <div id="nav-placeholder"></div>
+      <script src="../nav-bar/nav.js"></script>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation Placeholder -->
+    <div id="mobile-nav-placeholder"></div>
+    <script src="../mobile-nav/mobile.js"></script>
+  </header>
+
+
+  <!-- Main Content -->
+  <main>
+    <!-- Coming Soon Hero -->
+    <section class="coming-soon-hero">
+      <div class="coming-soon-content">
+        <div class="coming-soon-badge">
+          <i class="fas fa-hammer"></i> Coming Soon
+        </div>
+        <h1 class="coming-soon-title">New Metal Finishing Facility</h1>
+        <p class="coming-soon-subtitle">
+          Expanding our Nadcap certified capabilities with a dedicated finishing center to better serve our aerospace, military, and medical clients.
+        </p>
+      </div>
+    </section>
+
+    <!-- What's Coming Section -->
+    <section class="whats-coming">
+      <div class="whats-coming-container">
+        <h2 class="section-title">What's Coming</h2>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </div>
+            <h3 class="feature-title">Enhanced Capacity</h3>
+            <p class="feature-description">
+              Increased processing volume with dedicated lines for faster turnaround times and improved scheduling flexibility.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="feature-title">Advanced Equipment</h3>
+            <p class="feature-description">
+              State-of-the-art anodizing and chemical processing equipment for  quality and consistency.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="feature-title">Faster Turnaround</h3>
+            <p class="feature-description">
+              Streamlined processes and dedicated facility space to reduce lead times and improve delivery performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <p class="cta-text">
+          Stay updated on our new facility progress and be the first to know when we're ready to serve you.
+        </p>
+        <a href="manufacturing.html" class="cta-btn">
+          <i class="fas fa-arrow-left"></i> Back to Manufacturing
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+  <script src="../footer/footer.js"></script>
+  
+  <!-- Script -->
+  <script src="../script.js" defer></script>
+</body>
+</html>
