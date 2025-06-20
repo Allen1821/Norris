@@ -5,7 +5,7 @@
   min-height: 700px;
   
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
-              url('../assests/Manu_hero.PNG') center/cover no-repeat;
+              url('../assets/Manu_hero.PNG') center/cover no-repeat;
   display: flex;
   align-items: center;
   position: relative;

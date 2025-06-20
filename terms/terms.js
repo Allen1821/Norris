@@ -206,8 +206,27 @@ document.addEventListener('DOMContentLoaded', () => {
     return a.href;
   }
   
-  // Initialize the PDF viewer with the active PDF URL
-  loadPdf(activePdfUrl);
+  // Function to handle hash-based navigation
+  function handleHashNavigation() {
+    const hash = window.location.hash;
+    
+    if (hash === '#quality' || hash === '#quality-clauses-item') {
+      // Click the quality clauses item
+      const qualityItem = document.getElementById('quality-clauses-item');
+      if (qualityItem) {
+        qualityItem.click();
+      }
+    } else {
+      // Default to terms and conditions - but also load the PDF
+      const termsItem = document.getElementById('terms-conditions-item');
+      if (termsItem) {
+        termsItem.click();
+      } else {
+        // Fallback: Load the default PDF directly if the item doesn't exist yet
+        loadPdf(activePdfUrl);
+      }
+    }
+  }
   
   // Sidebar click → swap PDF
   fileItems.forEach(item => {
@@ -222,6 +241,19 @@ document.addEventListener('DOMContentLoaded', () => {
       loadPdf(activePdfUrl);
     });
   });
+
+  // Initialize with hash check - do this after setting up click handlers
+  handleHashNavigation();
+  
+  // If no hash or hash doesn't match, ensure default PDF loads
+  setTimeout(() => {
+    if (!document.querySelector('.terms-file-item.active')) {
+      document.getElementById('terms-conditions-item').click();
+    }
+  }, 100);
+  
+  // Listen for hash changes (if user manually changes URL)
+  window.addEventListener('hashchange', handleHashNavigation);
 
   // Download buttons
   downloadBtn.addEventListener('click', () => {
@@ -241,12 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
       onNextPage();
     }
   });
-
-  // If someone links in with #quality-clauses-item
-  if (window.location.hash === '#quality-clauses-item') {
-    const qc = document.getElementById('quality-clauses-item');
-    if (qc) qc.click();
-  }
   
   // Add touch gestures for mobile
   let touchStartX = 0;
@@ -305,4 +331,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 250);
   });
 });
-

@@ -14,7 +14,7 @@
         if (mobileNav && placeholder) {
           placeholder.innerHTML = mobileNav.outerHTML;
   
-          // ✅ Fix relative links on root page
+          //  Fix relative links on root page
           if (pathPrefix === "") {
             document.querySelectorAll("#mobile-nav-placeholder a").forEach(link => {
               const href = link.getAttribute("href");
