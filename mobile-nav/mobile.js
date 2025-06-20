@@ -11,7 +11,6 @@
     
     for (const path of possiblePaths) {
       try {
-        console.log('Trying to load mobile nav from:', path);
         const response = await fetch(path);
         
         if (response.ok) {
@@ -22,11 +21,10 @@
           const placeholder = document.getElementById('mobile-nav-placeholder');
           
           if (mobileNav && placeholder) {
-            console.log('Successfully loaded mobile nav from:', path);
             placeholder.innerHTML = mobileNav.outerHTML;
             
             // Calculate the correct base path for links
-            const basePath = path.replace('nav-bar/mobile.html', '');
+            const basePath = path.replace('mobile-nav/mobile.html', '');
             
             // Fix all relative links
             placeholder.querySelectorAll("a").forEach(link => {
@@ -53,12 +51,11 @@
           }
         }
       } catch (error) {
-        console.log('Failed to load mobile nav from:', path);
+        // Suppressed error logging
       }
     }
     
     // If we get here, none of the paths worked
-    console.error('Could not load mobile navigation from any path');
     const placeholder = document.getElementById('mobile-nav-placeholder');
     if (placeholder) {
       placeholder.innerHTML = '<p style="color: red;">Mobile navigation could not be loaded</p>';
@@ -78,7 +75,6 @@
       
       newMobileMenuBtn.addEventListener('click', () => {
         injectedMobileNav.classList.toggle('open');
-        console.log('Mobile menu toggled');
       });
       
       // Close menu when clicking outside
@@ -87,15 +83,8 @@
         const onBtn = newMobileMenuBtn.contains(event.target);
         if (!inside && !onBtn && injectedMobileNav.classList.contains('open')) {
           injectedMobileNav.classList.remove('open');
-          console.log('Mobile menu closed (clicked outside)');
         }
       });
-      
-      console.log('Mobile menu toggle functionality setup complete');
-    } else {
-      console.error('Menu button or injected nav not found.');
-      console.log('Mobile menu button found:', !!mobileMenuBtn);
-      console.log('Injected mobile nav found:', !!injectedMobileNav);
     }
     
     // Handle dropdowns
@@ -105,18 +94,13 @@
         const parent = trigger.closest('.dropdown');
         if (parent) {
           parent.classList.toggle('active');
-          console.log('Mobile dropdown toggled');
         }
       });
     });
-    
-    console.log('Mobile dropdown functionality setup complete');
   }
   
   // Check if the placeholder exists before trying to load
   if (document.getElementById('mobile-nav-placeholder')) {
     loadMobileNavigation();
-  } else {
-    console.error('mobile-nav-placeholder element not found in the page');
   }
 })();

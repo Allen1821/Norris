@@ -9,9 +9,9 @@
       '../../../../footer/footer.html' // Four levels up (just in case)
     ];
     
-    for (const path of possiblePaths) {
+    for (let i = 0; i < possiblePaths.length; i++) {
+      const path = possiblePaths[i];
       try {
-        console.log('Trying to load footer from:', path);
         const response = await fetch(path);
         
         if (response.ok) {
@@ -21,17 +21,21 @@
             .querySelector('footer');
           
           if (footer) {
-            console.log('Successfully loaded footer from:', path);
             document.getElementById('footer-placeholder').innerHTML = footer.outerHTML;
             
-            // Calculate the correct base path for links
-            const basePath = path.replace('nav-bar/footer.html', '');
+            // Calculate the depth level based on which path worked
+            const depthLevel = i; // 0 = same level, 1 = one up, 2 = two up, etc.
             
             // Fix all relative links in footer
             document.querySelectorAll("#footer-placeholder a").forEach(link => {
               const href = link.getAttribute("href");
               if (href && href.startsWith("../")) {
-                const newHref = href.replace("../", basePath);
+                const originalLevels = (href.match(/\.\.\//g) || []).length;
+                const cleanPath = href.replace(/^(\.\.\/)+/, '');
+                const neededLevels = originalLevels - depthLevel;
+                const newHref = neededLevels > 0
+                  ? '../'.repeat(neededLevels) + cleanPath
+                  : cleanPath;
                 link.setAttribute("href", newHref);
               }
             });
@@ -40,22 +44,25 @@
             document.querySelectorAll("#footer-placeholder img").forEach(img => {
               const src = img.getAttribute("src");
               if (src && src.startsWith("../")) {
-                const newSrc = src.replace("../", basePath);
+                const originalLevels = (src.match(/\.\.\//g) || []).length;
+                const cleanPath = src.replace(/^(\.\.\/)+/, '');
+                const neededLevels = originalLevels - depthLevel;
+                const newSrc = neededLevels > 0
+                  ? '../'.repeat(neededLevels) + cleanPath
+                  : cleanPath;
                 img.setAttribute("src", newSrc);
               }
             });
             
-            console.log('Footer links and images updated successfully');
             return; // Success! Exit the function
           }
         }
       } catch (error) {
-        console.log('Failed to load footer from:', path);
+        // Suppressed error logging
       }
     }
     
     // If we get here, none of the paths worked
-    console.error('Could not load footer from any path');
     const placeholder = document.getElementById('footer-placeholder');
     if (placeholder) {
       placeholder.innerHTML = '<p style="color: red;">Footer could not be loaded</p>';
@@ -65,7 +72,5 @@
   // Check if the placeholder exists before trying to load
   if (document.getElementById('footer-placeholder')) {
     loadFooter();
-  } else {
-    console.error('footer-placeholder element not found in the page');
   }
 })();

@@ -11,7 +11,6 @@
     
     for (const path of possiblePaths) {
       try {
-        console.log('Trying to load nav from:', path);
         const response = await fetch(path);
         
         if (response.ok) {
@@ -21,7 +20,6 @@
             .querySelector("nav");
           
           if (nav) {
-            console.log('Successfully loaded nav from:', path);
             document.getElementById("nav-placeholder").innerHTML = nav.outerHTML;
             
             // Calculate the correct base path for links
@@ -49,12 +47,11 @@
           }
         }
       } catch (error) {
-        console.log('Failed to load from:', path);
+        // Suppressed error log
       }
     }
     
     // If we get here, none of the paths worked
-    console.error('Could not load navigation from any path');
     document.getElementById("nav-placeholder").innerHTML = 
       '<p style="color: red;">Navigation could not be loaded</p>';
   }
@@ -62,7 +59,5 @@
   // Check if the placeholder exists before trying to load
   if (document.getElementById("nav-placeholder")) {
     loadNavigation();
-  } else {
-    console.error('nav-placeholder element not found in the page');
   }
 })();
