@@ -239,22 +239,27 @@ header {
 	min-height: 500px;
 }
 
-/* Pin the video to the viewport, *not* the .hero box */
-#hero-video {
-	position: fixed;                        /* key change */
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	-o-object-fit: cover;
-	   object-fit: cover;
-	/* smoother hardware‑accelerated scrolling */
-	-webkit-transform: translateZ(0);
-	        transform: translateZ(0);
-	/* stay behind headings/buttons */
-	z-index: -1;
-	pointer-events: none;                   /* don’t block clicks/scroll */
-	will-change: transform;
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;  /* Zoom in */
+  height: 120vh;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+  z-index: -1;
+  filter: brightness(30%) saturate(110%);
 }
 
 
@@ -952,6 +957,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
+@media (max-width: 768px) {
+  .hero-video-container iframe {
+    width: 177.78vh; /* Perfect 16:9 aspect based on height */
+    height: 100vh;
+    transform: translate(-50%, -50%);
+  }
+}
 
   
 }
