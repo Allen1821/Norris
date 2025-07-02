@@ -240,7 +240,7 @@ header {
 }
 
 .hero-video-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -253,7 +253,7 @@ header {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120vw;  /* Zoom in */
+  width: 120vw;
   height: 120vh;
   transform: translate(-50%, -50%);
   border: none;
@@ -271,6 +271,7 @@ header {
   padding: 0 2rem;
   color: var(--white);
 }
+
 
 .hero-title {
   font-size: 3.2rem;
@@ -342,13 +343,7 @@ header {
     padding-left: 5%;
   }
   
-  #hero-video {
-    /* Improve mobile performance */
-    will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -356,7 +351,14 @@ header {
   .hero-subtitle {
     font-size: 1.1rem;
   }
+
+  .hero-video-container iframe {
+    width: 177.78vh;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+  }
 }
+
 
 /* Hero Section */
 .hero {
@@ -368,6 +370,15 @@ header {
   align-items: center;
   justify-content: flex-start;
   padding-left: 10%;
+}
+
+.hero-content {
+  max-width: 650px;
+  padding: 0 2rem;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  text-align: left;
 }
 .hero-title {
   font-size: 3.2rem;
@@ -874,6 +885,8 @@ footer {
     display: block;
   }
   
+
+
   /* Let .mobile-nav be hidden by default, but can slide in */
   .mobile-nav {
     display: block; /* Always in the DOM in mobile view */
@@ -937,13 +950,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-@media (max-width: 768px) {
-  .hero-video-container iframe {
-    width: 177.78vh; /* Perfect 16:9 aspect based on height */
-    height: 100vh;
-    transform: translate(-50%, -50%);
-  }
-}
 
   
 }
