@@ -7,6 +7,7 @@
   <!-- Base Styles and Page-Specific Styles -->
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="careers.css">
+  <script src="careers.js"></script>
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -81,50 +82,100 @@
       </div>
     </section>
 
-  <section id="open-positions" class="open-positions-section">
+<!-- 
+<section id="open-positions" class="open-positions-section">
   <div class="section-header">
     <h2>Current Openings</h2>
     <p>No open positions at this time. Please check back later.</p>
   </div>
-</section>
-
-  <!--
-  <section id="open-positions" class="open-positions-section">
+</section> 
+-->
+<section id="open-positions" class="open-positions-section">
     <div class="section-header">
       <h2>Current Openings</h2>
       <p>Explore exciting opportunities across various departments and skill levels.</p>
     </div>
     <div class="positions-grid">
       <div class="position-card">
-        <h3>CNC Machinist</h3>
+        <h3>Experienced Aerospace CNC Machinist</h3>
         <div class="position-details">
           <span class="location">Clearwater, FL</span>
-          <span class="type">Full-time</span>
+          <span class="type">Full-time • 1st & 2nd Shift</span>
         </div>
-        <p>Operate advanced CNC machinery to produce precision components for aerospace and medical industries.</p>
-        <a href="#apply" class="cta-btn">Apply Now</a>
-      </div>
-      <div class="position-card">
-        <h3>Quality Engineer</h3>
-        <div class="position-details">
-          <span class="location">Clearwater, FL</span>
-          <span class="type">Full-time</span>
+        
+        <p class="job-summary">Join our aerospace manufacturing team operating advanced CNC mills. Set-up and machine operator positions available with competitive benefits and shift differentials.</p>
+        
+        <div class="job-highlights">
+          <div class="highlight-item">
+            <strong>Experience:</strong> 2-5+ years CNC experience
+          </div>
+          <div class="highlight-item">
+            <strong>Equipment:</strong> Mori Seiki, Grob G350, 3-5 axis mills
+          </div>
+          <div class="highlight-item">
+            <strong>Benefits:</strong> Health/Dental/Vision, 401k, 10% shift diff
+          </div>
+          <div class="highlight-item">
+            <strong>Requirement:</strong> US Citizenship required
+          </div>
         </div>
-        <p>Ensure product quality and compliance with AS9100 and ISO 9001 standards.</p>
-        <a href="#apply" class="cta-btn">Apply Now</a>
-      </div>
-      <div class="position-card">
-        <h3>Manufacturing Engineer</h3>
-        <div class="position-details">
-          <span class="location">Clearwater, FL</span>
-          <span class="type">Full-time</span>
+
+        <div class="card-actions">
+          <button class="details-btn" onclick="toggleJobDetails(this)">View Full Details</button>
+          <a href="mailto:jobs@norrisprecision.com?subject=Aerospace CNC Machinist Application&body=Dear Hiring Manager,%0D%0A%0D%0AI am interested in the Experienced Aerospace CNC Machinist position. Please find my resume and work experience attached.%0D%0A%0D%0AThank you for your consideration.%0D%0A%0D%0ABest regards," class="cta-btn">Apply Now</a>
         </div>
-        <p>Design and optimize manufacturing processes for complex precision components.</p>
-        <a href="#apply" class="cta-btn">Apply Now</a>
+
+        <div class="job-details-expanded" style="display: none;">
+          <div class="job-section">
+            <h4>Minimum Requirements:</h4>
+            <ul>
+              <li>Must be a United States citizen</li>
+              <li>High School diploma or equivalent education</li>
+              <li>The ability to use basic measurement equipment: Calipers, Micrometers, Indicators, Dial Bores, Air gages and other equipment as necessary</li>
+              <li>The ability to read simplified blueprints</li>
+              <li>An understanding of basic mathematics</li>
+              <li>Basic computer skills</li>
+              <li>Have the ability to communicate effectively in English</li>
+              <li>Have the ability to work with others as a team</li>
+              <li>Good manual dexterity</li>
+              <li>Ability to lift 30 lbs</li>
+            </ul>
+          </div>
+
+          <div class="job-section">
+            <h4>Key Skills and Competencies:</h4>
+            <ul>
+              <li>Minimum 5 years' experience preferred for set-up persons</li>
+              <li>2 years' experience for machine operators</li>
+              <li>Experience in setting up and operating 3 Axis Vertical CNC Mills, 4 & 5-Axis Horizontal Mills. Such as: Mori Seiki with Fanuc controls and Grob G350 with Siemens controls</li>
+              <li>Knowledge of tool holders, cutting tools, boring heads, fixtures, inserts and other accessories</li>
+              <li>Utilize all necessary gages and equipment to properly inspect part accuracy</li>
+              <li>Be able to detect and adjust machines to correct any defect or problem with part setup</li>
+              <li>Must be able to follow written and verbal instructions and have a high attention to detail</li>
+              <li>Knowledge of G and M codes</li>
+              <li>Knowledge and understanding of CNC mill programs</li>
+              <li>Maintain all records required</li>
+              <li>Maintain a clean and safe work environment. Following safety, 5s and environmental procedures and regulations</li>
+            </ul>
+          </div>
+
+          <div class="job-section">
+            <h4>Company Requirements and Benefits:</h4>
+            <ul>
+              <li>Pre-employment Drug Screening/Background Check</li>
+              <li>Full time 40 hours a week plus overtime when available</li>
+              <li>1st and 2nd shift available</li>
+              <li>2nd shift will receive a 10% shift differential</li>
+              <li>Health / Dental / Vision / Optional life insurance available after 60 days</li>
+              <li>401k available after 90 days</li>
+              <li>Paid Holidays</li>
+            </ul>
+            <p><strong>Must respond with resume and work experience to be considered.</strong></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  -->
 
     <!-- Application Process Section -->
     <section class="application-process">
@@ -208,5 +259,6 @@
 
   <!-- Script -->
   <script src="../script.js" defer></script>
+  <script src="carrer.js" defer></script>
 </body>
 </html>
