@@ -8,7 +8,6 @@
   color: white;
 }
 
-
 .hero-bg-image {
   position: absolute;
   top: 0;
@@ -20,9 +19,6 @@
   filter: brightness(0.6);
 }
 
-
-
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -30,62 +26,59 @@
   padding: 2rem;
 }
 
-
 /* Careers Hero Modifications */
 .careers-hero {
     background: var(--dark-blue);
-    
-  }
-  
-  /* Why Work Here Section */
-  .why-work-section {
-    padding: 5rem 2rem;
-    background: var(--light-gray);
-  }
-  
-  .why-work-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .why-work-card {
-    background: var(--white);
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
-  
-  .why-work-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .why-work-card i {
-    font-size: 3rem;
-    color: var(--accent-blue);
-    margin-bottom: 1rem;
-  }
-  
-  /* Open Positions Section */
-  .open-positions-section {
-    padding: 5rem 2rem;
-    background: var(--white);
-  }
-  
-  .positions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-/* Updated Position Card Styles */
+}
+
+/* Why Work Here Section */
+.why-work-section {
+  padding: 5rem 2rem;
+  background: var(--light-gray);
+}
+
+.why-work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-work-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.why-work-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-work-card i {
+  font-size: 3rem;
+  color: var(--accent-blue);
+  margin-bottom: 1rem;
+}
+
+/* Open Positions Section */
+.open-positions-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+
+.positions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Updated Position Card Styles - Minimalist Design */
 .position-card {
   border: 1px solid var(--light-gray);
@@ -174,6 +167,8 @@
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .cta-btn:hover {
@@ -245,143 +240,147 @@
 .job-section strong {
   color: var(--accent-blue);
 }
-  
-  /* Application Process Section */
-  .application-process {
-    padding: 5rem 2rem;
-    background: var(--light-gray);
-  }
-  
-  .process-steps {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .process-step {
-    flex: 1;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-  }
-  
-  .process-step:not(:last-child)::after {
-    content: '→';
-    position: absolute;
-    top: 50%;
-    right: -50px;
-    transform: translateY(-50%);
-    color: var(--accent-blue);
-    font-size: 2rem;
-  }
-  
-  .step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--accent-blue);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  /* Equal Opportunity Section */
-  .equal-opportunity {
-    padding: 5rem 2rem;
-    background: var(--white);
-  }
-  
-  .opportunity-details {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 2rem;
-  }
-  
-  .opportunity-info, .opportunity-commitment {
-    flex: 1;
-  }
-  
-  .opportunity-info ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .opportunity-info li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  
-  .opportunity-info li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-blue);
-  }
-  
-  /* Careers Contact Section */
-  .careers-contact {
-    padding: 5rem 2rem;
-    background: var(--light-gray);
-    text-align: center;
-  }
-  
-  .contact-info {
-    
-    justify-content: center;
-    gap: 3rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .contact-method {
-    text-align: center;
-  }
-  
-  .contact-method i {
-    font-size: 3rem;
-    color: var(--accent-blue);
-    margin-bottom: 1rem;
+
+/* Application Process Section */
+.application-process {
+  padding: 5rem 2rem;
+  background: var(--light-gray);
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.process-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  transform: translateY(-50%);
+  color: var(--accent-blue);
+  font-size: 2rem;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--accent-blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Equal Opportunity Section */
+.equal-opportunity {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+
+.opportunity-details {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.opportunity-info, .opportunity-commitment {
+  flex: 1;
+}
+
+.opportunity-info ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.opportunity-info li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.opportunity-info li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+}
+
+/* Careers Contact Section */
+.careers-contact {
+  padding: 5rem 2rem;
+  background: var(--light-gray);
+  text-align: center;
+}
+
+.contact-info {
+  justify-content: center;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-method {
+  text-align: center;
+}
+
+.contact-method i {
+  font-size: 3rem;
+  color: var(--accent-blue);
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .why-work-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  
-  
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .why-work-grid,
-    .positions-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    .process-steps {
-      flex-direction: column;
-    }
-  
-    .process-step:not(:last-child)::after {
-      content: '↓';
-      right: 50%;
-      top: 100%;
-      transform: translateX(50%);
-    }
-  
-    .opportunity-details {
-      flex-direction: column;
-    }
+  .positions-grid {
+    grid-template-columns: 1fr;
   }
-  
-  @media (max-width: 768px) {
-    .why-work-grid,
-    .positions-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .contact-info {
-      flex-direction: column;
-    }
+
+  .process-steps {
+    flex-direction: column;
   }
+
+  .process-step:not(:last-child)::after {
+    content: '↓';
+    right: 50%;
+    top: 100%;
+    transform: translateX(50%);
+  }
+
+  .opportunity-details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-work-grid,
+  .positions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}

@@ -19,10 +19,9 @@
         <div class="logo" onclick="window.location = '../index.html'"></div>
       </div>
 
-  <!-- Navigation Placeholder -->
-  <div id="nav-placeholder"></div>
-  <script src="../nav-bar/nav.js"></script>
-
+      <!-- Navigation Placeholder -->
+      <div id="nav-placeholder"></div>
+      <script src="../nav-bar/nav.js"></script>
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="mobile-menu-btn">
@@ -82,100 +81,169 @@
       </div>
     </section>
 
-<!-- 
-<section id="open-positions" class="open-positions-section">
-  <div class="section-header">
-    <h2>Current Openings</h2>
-    <p>No open positions at this time. Please check back later.</p>
-  </div>
-</section> 
--->
-<section id="open-positions" class="open-positions-section">
-    <div class="section-header">
-      <h2>Current Openings</h2>
-      <p>Explore exciting opportunities across various departments and skill levels.</p>
-    </div>
-    <div class="positions-grid">
-      <div class="position-card">
-        <h3>Experienced Aerospace CNC Machinist</h3>
-        <div class="position-details">
-          <span class="location">Clearwater, FL</span>
-          <span class="type">Full-time • 1st & 2nd Shift</span>
+    <!-- Open Positions Section -->
+    <section id="open-positions" class="open-positions-section">
+      <div class="section-header">
+        <h2>Current Openings</h2>
+        <p>Explore exciting opportunities across various departments and skill levels.</p>
+      </div>
+      <div class="positions-grid">
+        <!-- CNC Machinist Position -->
+        <div class="position-card">
+          <h3>Experienced Aerospace CNC Machinist</h3>
+          <div class="position-details">
+            <span class="location">Clearwater, FL</span>
+            <span class="type">Full-time • 1st & 2nd Shift</span>
+          </div>
+          
+          <p class="job-summary">Join our aerospace manufacturing team operating advanced CNC mills. Set-up and machine operator positions available with competitive benefits and shift differentials.</p>
+          
+          <div class="job-highlights">
+            <div class="highlight-item">
+              <strong>Experience:</strong> 2-5+ years CNC experience
+            </div>
+            <div class="highlight-item">
+              <strong>Equipment:</strong> Mori Seiki, Grob G350, 3-5 axis mills
+            </div>
+            <div class="highlight-item">
+              <strong>Benefits:</strong> Health/Dental/Vision, 401k, 10% shift diff
+            </div>
+            <div class="highlight-item">
+              <strong>Requirement:</strong> US Citizenship required
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="details-btn" onclick="toggleJobDetails(this)">View Full Details</button>
+            <a href="mailto:jobs@norrisprecision.com?subject=Aerospace CNC Machinist Application&body=Please submit resume here." class="cta-btn">Apply Now</a>
+          </div>
+
+          <div class="job-details-expanded" style="display: none;">
+            <div class="job-section">
+              <h4>Minimum Requirements:</h4>
+              <ul>
+                <li>Must be a United States citizen</li>
+                <li>High School diploma or equivalent education</li>
+                <li>The ability to use basic measurement equipment: Calipers, Micrometers, Indicators, Dial Bores, Air gages and other equipment as necessary</li>
+                <li>The ability to read simplified blueprints</li>
+                <li>An understanding of basic mathematics</li>
+                <li>Basic computer skills</li>
+                <li>Have the ability to communicate effectively in English</li>
+                <li>Have the ability to work with others as a team</li>
+                <li>Good manual dexterity</li>
+                <li>Ability to lift 30 lbs</li>
+              </ul>
+            </div>
+
+            <div class="job-section">
+              <h4>Key Skills and Competencies:</h4>
+              <ul>
+                <li>Minimum 5 years' experience preferred for set-up persons</li>
+                <li>2 years' experience for machine operators</li>
+                <li>Experience in setting up and operating 3 Axis Vertical CNC Mills, 4 & 5-Axis Horizontal Mills. Such as: Mori Seiki with Fanuc controls and Grob G350 with Siemens controls</li>
+                <li>Knowledge of tool holders, cutting tools, boring heads, fixtures, inserts and other accessories</li>
+                <li>Utilize all necessary gages and equipment to properly inspect part accuracy</li>
+                <li>Be able to detect and adjust machines to correct any defect or problem with part setup</li>
+                <li>Must be able to follow written and verbal instructions and have a high attention to detail</li>
+                <li>Knowledge of G and M codes</li>
+                <li>Knowledge and understanding of CNC mill programs</li>
+                <li>Maintain all records required</li>
+                <li>Maintain a clean and safe work environment. Following safety, 5s and environmental procedures and regulations</li>
+              </ul>
+            </div>
+
+            <div class="job-section">
+              <h4>Company Requirements and Benefits:</h4>
+              <ul>
+                <li>Pre-employment Drug Screening/Background Check</li>
+                <li>Full time 40 hours a week plus overtime when available</li>
+                <li>1st and 2nd shift available</li>
+                <li>2nd shift will receive a 10% shift differential</li>
+                <li>Health / Dental / Vision / Optional life insurance available after 60 days</li>
+                <li>401k available after 90 days</li>
+                <li>Paid Holidays</li>
+              </ul>
+              <p><strong>Must respond with resume and work experience to be considered.</strong></p>
+            </div>
+          </div>
         </div>
-        
-        <p class="job-summary">Join our aerospace manufacturing team operating advanced CNC mills. Set-up and machine operator positions available with competitive benefits and shift differentials.</p>
-        
-        <div class="job-highlights">
-          <div class="highlight-item">
-            <strong>Experience:</strong> 2-5+ years CNC experience
-          </div>
-          <div class="highlight-item">
-            <strong>Equipment:</strong> Mori Seiki, Grob G350, 3-5 axis mills
-          </div>
-          <div class="highlight-item">
-            <strong>Benefits:</strong> Health/Dental/Vision, 401k, 10% shift diff
-          </div>
-          <div class="highlight-item">
-            <strong>Requirement:</strong> US Citizenship required
-          </div>
-        </div>
 
-        <div class="card-actions">
-          <button class="details-btn" onclick="toggleJobDetails(this)">View Full Details</button>
-          <a href="mailto:jobs@norrisprecision.com?subject=Aerospace CNC Machinist Application&body=Dear Hiring Manager,%0D%0A%0D%0AI am interested in the Experienced Aerospace CNC Machinist position. Please find my resume and work experience attached.%0D%0A%0D%0AThank you for your consideration.%0D%0A%0D%0ABest regards," class="cta-btn">Apply Now</a>
-        </div>
-
-        <div class="job-details-expanded" style="display: none;">
-          <div class="job-section">
-            <h4>Minimum Requirements:</h4>
-            <ul>
-              <li>Must be a United States citizen</li>
-              <li>High School diploma or equivalent education</li>
-              <li>The ability to use basic measurement equipment: Calipers, Micrometers, Indicators, Dial Bores, Air gages and other equipment as necessary</li>
-              <li>The ability to read simplified blueprints</li>
-              <li>An understanding of basic mathematics</li>
-              <li>Basic computer skills</li>
-              <li>Have the ability to communicate effectively in English</li>
-              <li>Have the ability to work with others as a team</li>
-              <li>Good manual dexterity</li>
-              <li>Ability to lift 30 lbs</li>
-            </ul>
+        <!-- Aerospace Component Deburr Tech Position -->
+        <div class="position-card">
+          <h3>Aerospace Component Deburr Tech</h3>
+          <div class="position-details">
+            <span class="location">Clearwater, FL</span>
+            <span class="type">Full-time • 1st Shift</span>
+          </div>
+          
+          <p class="job-summary">Join our precision finishing team specializing in deburring CNC machined aerospace components. Work with aluminum, steel, and titanium materials in a manufacturing environment.</p>
+          
+          <div class="job-highlights">
+            <div class="highlight-item">
+              <strong>Experience:</strong> 1+ years deburring experience preferred
+            </div>
+            <div class="highlight-item">
+              <strong>Materials:</strong> Aluminum, Steel, Titanium components
+            </div>
+            <div class="highlight-item">
+              <strong>Benefits:</strong> Health/Dental/Vision, 401k, Paid Holidays
+            </div>
+            <div class="highlight-item">
+              <strong>Requirement:</strong> US Citizenship required
+            </div>
           </div>
 
-          <div class="job-section">
-            <h4>Key Skills and Competencies:</h4>
-            <ul>
-              <li>Minimum 5 years' experience preferred for set-up persons</li>
-              <li>2 years' experience for machine operators</li>
-              <li>Experience in setting up and operating 3 Axis Vertical CNC Mills, 4 & 5-Axis Horizontal Mills. Such as: Mori Seiki with Fanuc controls and Grob G350 with Siemens controls</li>
-              <li>Knowledge of tool holders, cutting tools, boring heads, fixtures, inserts and other accessories</li>
-              <li>Utilize all necessary gages and equipment to properly inspect part accuracy</li>
-              <li>Be able to detect and adjust machines to correct any defect or problem with part setup</li>
-              <li>Must be able to follow written and verbal instructions and have a high attention to detail</li>
-              <li>Knowledge of G and M codes</li>
-              <li>Knowledge and understanding of CNC mill programs</li>
-              <li>Maintain all records required</li>
-              <li>Maintain a clean and safe work environment. Following safety, 5s and environmental procedures and regulations</li>
-            </ul>
+          <div class="card-actions">
+            <button class="details-btn" onclick="toggleJobDetails(this)">View Full Details</button>
+            <a href="mailto:jobs@norrisprecision.com?subject=Aerospace Component Deburr Tech Application&body=Please submit resume here." class="cta-btn">Apply Now</a>
           </div>
 
-          <div class="job-section">
-            <h4>Company Requirements and Benefits:</h4>
-            <ul>
-              <li>Pre-employment Drug Screening/Background Check</li>
-              <li>Full time 40 hours a week plus overtime when available</li>
-              <li>1st and 2nd shift available</li>
-              <li>2nd shift will receive a 10% shift differential</li>
-              <li>Health / Dental / Vision / Optional life insurance available after 60 days</li>
-              <li>401k available after 90 days</li>
-              <li>Paid Holidays</li>
-            </ul>
-            <p><strong>Must respond with resume and work experience to be considered.</strong></p>
+          <div class="job-details-expanded" style="display: none;">
+            <div class="job-section">
+              <h4>Minimum Requirements:</h4>
+              <ul>
+                <li>Must be a United States citizen</li>
+                <li>High School diploma or equivalent education</li>
+                <li>The ability to read simplified blueprints</li>
+                <li>Basic computer skills</li>
+                <li>Minimum 1 year experience in deburring of CNC machined components of the following materials: Aluminum, Steel and Titanium, preferably in an aerospace manufacturing environment</li>
+                <li>Have the ability to communicate effectively in English</li>
+                <li>Have the ability to work with others as a team</li>
+                <li>Good manual dexterity</li>
+                <li>Ability to lift 30 lbs</li>
+              </ul>
+            </div>
+
+            <div class="job-section">
+              <h4>Key Skills and Competencies:</h4>
+              <ul>
+                <li>Have a great attention to detail</li>
+                <li>Able to remove burrs and sharp edges from CNC machined components using various hand/power tools</li>
+                <li>Ability to polish and blend CNC machined castings, forgings and billet components</li>
+                <li>Must be able to verify conformance of work to blueprint requirements</li>
+                <li>Selecting proper methods and tools for deburring</li>
+                <li>Maintain all records required</li>
+                <li>Maintaining deburring equipment</li>
+                <li>Maintain a clean and safe work environment. Following safety, 5s and environmental procedures and regulations</li>
+              </ul>
+            </div>
+
+            <div class="job-section">
+              <h4>Company Requirements and Benefits:</h4>
+              <ul>
+                <li>Pre-employment Drug Screening/Background Check</li>
+                <li>Full time, 40 hours a week plus overtime when available</li>
+                <li>1st shift</li>
+                <li>Health / Dental / Vision / Optional life insurance available after 60 days</li>
+                <li>401k available after 90 days</li>
+                <li>Paid Holidays</li>
+              </ul>
+              <p><strong>Must respond with resume and work experience to be considered.</strong></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Application Process Section -->
     <section class="application-process">
@@ -222,7 +290,6 @@
             <li>Individuals with disabilities</li>
             <li>Green Card holders (Permanent Residents)</li>
           </ul>
-          
         </div>
         <div class="opportunity-commitment">
           <h3>Our Commitment</h3>
@@ -256,9 +323,8 @@
   <div id="footer-placeholder"></div>
   <script src="../footer/footer.js"></script>
 
-
   <!-- Script -->
   <script src="../script.js" defer></script>
-  <script src="carrer.js" defer></script>
+  <script src="careers.js" defer></script>
 </body>
 </html>
