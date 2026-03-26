@@ -198,12 +198,36 @@ document.addEventListener('DOMContentLoaded', () => {
       showPdfInIframe(pdfUrl);
     }
   }
+
+  /**
+   * Sanitize a potentially relative URL by resolving it against the current
+   * location and enforcing a safe, same-origin http/https URL.
+   * Returns a string URL if valid, or null if invalid/unsafe.
+   */
+  function sanitizePdfUrl(possibleUrl) {
+    if (!possibleUrl || typeof possibleUrl !== 'string') {
+      return null;
+    }
+    try {
+      // Resolve relative URLs against the current page location
+      const resolved = new URL(possibleUrl, window.location.href);
+      const protocol = resolved.protocol.toLowerCase();
+      // Allow only same-origin http/https URLs
+      if ((protocol === 'http:' || protocol === 'https:') &&
+          resolved.origin === window.location.origin) {
+        return resolved.toString();
+      }
+    } catch (e) {
+      // Malformed URLs are treated as invalid
+    }
+    return null;
+  }
   
-  // Utility to resolve a relative URL to absolute
+  // Utility to resolve a relative URL to absolute, applying the same
+  // sanitization rules used elsewhere to avoid unsafe schemes/origins.
   function getAbsoluteUrl(url) {
-    const a = document.createElement('a');
-    a.href = url;
-    return a.href;
+    const safeUrl = sanitizePdfUrl(url);
+    return safeUrl || window.location.href;
   }
   
   // Function to handle hash-based navigation
@@ -234,7 +258,13 @@ document.addEventListener('DOMContentLoaded', () => {
       fileItems.forEach(el => el.classList.remove('active'));
       item.classList.add('active');
 
-      activePdfUrl = item.getAttribute('data-pdf');
+      const pdfAttr = item.getAttribute('data-pdf');
+      const sanitizedUrl = sanitizePdfUrl(pdfAttr);
+      if (!sanitizedUrl) {
+        // If the URL is invalid or unsafe, do not change the active PDF.
+        return;
+      }
+      activePdfUrl = sanitizedUrl;
       pdfTitle.textContent = item.textContent.trim();
       
       // Load the new PDF
