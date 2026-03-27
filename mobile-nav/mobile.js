@@ -30,7 +30,7 @@
             placeholder.querySelectorAll("a").forEach(link => {
               const href = link.getAttribute("href");
               if (href && href.startsWith("../")) {
-                const newHref = href.replace("../", basePath);
+                const newHref = href.replace(/^(\.\.\/)+/, basePath);
                 link.setAttribute("href", newHref);
               }
             });
@@ -39,7 +39,7 @@
             placeholder.querySelectorAll("img").forEach(img => {
               const src = img.getAttribute("src");
               if (src && src.startsWith("../")) {
-                const newSrc = src.replace("../", basePath);
+                const newSrc = src.replace(/^(\.\.\/)+/, basePath);
                 img.setAttribute("src", newSrc);
               }
             });
