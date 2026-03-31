@@ -29,7 +29,7 @@
             document.querySelectorAll("#footer-placeholder a").forEach(link => {
               const href = link.getAttribute("href");
               if (href && href.startsWith("../")) {
-                const newHref = href.replace("../", basePath);
+                const newHref = href.replace(/\.\.\//g, basePath);
                 link.setAttribute("href", newHref);
               }
             });
@@ -38,7 +38,7 @@
             document.querySelectorAll("#footer-placeholder img").forEach(img => {
               const src = img.getAttribute("src");
               if (src && src.startsWith("../")) {
-                const newSrc = src.replace("../", basePath);
+                const newSrc = src.replace(/\.\.\//g, basePath);
                 img.setAttribute("src", newSrc);
               }
             });
