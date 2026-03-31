@@ -3,247 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metal Finishing - Norris Precision Mfg.</title>
+    <title>Metal Finishing | Norris Precision Mfg.</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="metal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation bar would be here -->
-
-    <!-- Metal Finishing Hero -->
-    <section class="metal-finishing-hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Metal Finishing Excellence</h1>
-            <p class="hero-subtitle">Nadcap certified chemical processing with precision and quality control</p>
-            <div class="nav-buttons">
-                <a href="#process-overview" class="cta-btn">Our Processes</a>
-                <a href="#certifications" class="cta-btn">Certifications</a>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo" onclick="window.location = '../index.html'"></div>
             </div>
+
+            <div id="nav-placeholder"></div>
+            <script src="../nav-bar/nav.js"></script>
+
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </section>
 
-    <!-- Process Overview Section -->
-    <section id="process-overview" class="process-overview">
-        <div class="process-container">
-            <div class="process-header">
-                <h2>Advanced Metal Finishing</h2>
-                <p>Norris Precision Mfg. offers the highest quality Nadcap certified chemical processing. We offer chromic and sulfuric anodize, chem-film, and passivation processed to a wide variety of government, military, and customer specifications.</p>
-                <p>Having this capability in-house greatly reduces manufacturing lead-time while improving quality by having complete process control to maintain dimensional integrity.</p>
-                <p>Our state-of-the-art finishing facility ensures that every part meets the exact specifications required, with strict quality control measures at every step of the process.</p>
+        <div id="mobile-nav-placeholder"></div>
+        <script src="../mobile-nav/mobile.js"></script>
+    </header>
+
+    <main>
+        <section class="metal-hero">
+            <div class="metal-hero-media">
+                <div class="metal-hero-poster"></div>
+                <iframe
+                    src="https://www.youtube.com/embed/dxv-gESNtVI?autoplay=1&mute=1&loop=1&playlist=dxv-gESNtVI&controls=0&modestbranding=1&rel=0"
+                    title="Norris Precision metal finishing overview"
+                    allow="autoplay; fullscreen"
+                    loading="lazy"
+                ></iframe>
             </div>
 
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-content">
-                        <div class="step-number">01</div>
+            <div class="metal-hero-overlay"></div>
+
+            <div class="metal-hero-shell">
+                <div class="metal-hero-copy reveal">
+                    <p class="eyebrow">Nadcap Certified Chemical Processing</p>
+                    <h1>Metal finishing built to protect performance and compress lead time.</h1>
+                    <p class="metal-hero-text">
+                        Norris Precision keeps anodize, chem-film, and passivation in-house so critical aerospace, defense,
+                        and medical hardware moves from machining to finishing with tighter process control.
+                    </p>
+                    <div class="metal-hero-actions">
+                        <a href="#capabilities" class="cta-btn">Explore Processes</a>
+                        <a href="#quote-form" class="cta-btn outline">Request a Quote</a>
+                    </div>
+                </div>
+
+                <div class="metal-hero-rail reveal">
+                    <div class="hero-rail-item">
+                        <span class="rail-value">In-House</span>
+                        <span class="rail-label">Process control from start to finish</span>
+                    </div>
+                    <div class="hero-rail-item">
+                        <span class="rail-value">Nadcap</span>
+                        <span class="rail-label">Certified special process discipline</span>
+                    </div>
+                    <div class="hero-rail-item">
+                        <span class="rail-value">Fast</span>
+                        <span class="rail-label">Reduced handoffs and shorter turnaround</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metal-proof">
+            <div class="metal-proof-grid">
+                <div class="proof-item reveal">
+                    <span class="proof-kicker">01</span>
+                    <h2>Dimensional integrity stays protected.</h2>
+                    <p>Finishing is managed under the same roof as production, reducing handling risk on precision components.</p>
+                </div>
+                <div class="proof-item reveal">
+                    <span class="proof-kicker">02</span>
+                    <h2>Spec-driven processing, not generic coating work.</h2>
+                    <p>We support government, military, customer, and aerospace-driven requirements with disciplined documentation.</p>
+                </div>
+                <div class="proof-item reveal">
+                    <span class="proof-kicker">03</span>
+                    <h2>Capacity is expanding around quality.</h2>
+                    <p>The new finishing buildout strengthens throughput while preserving the control Norris is known for.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="metal-story section-block" id="capabilities">
+            <div class="section-heading reveal">
+                <p class="eyebrow">What We Process</p>
+                <h2>One finishing center, three critical surface treatments.</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-copy reveal">
+                    <p>
+                        Our finishing department is designed to support demanding components that cannot afford dimensional drift,
+                        cosmetic inconsistency, or outsourced scheduling delays. By keeping chemical processing close to machining,
+                        Norris shortens the path from raw material to ready-to-install hardware.
+                    </p>
+                    <p>
+                        The result is a cleaner handoff, tighter quality oversight, and a production rhythm better suited to
+                        aerospace, defense, and medical programs.
+                    </p>
+
+                    <div class="story-specs">
+                        <div class="story-spec">
+                            <span class="story-spec-title">Anodize</span>
+                            <span class="story-spec-copy">Chromic and sulfuric anodize for corrosion resistance and controlled surface performance.</span>
+                        </div>
+                        <div class="story-spec">
+                            <span class="story-spec-title">Chem-Film</span>
+                            <span class="story-spec-copy">Chemical conversion coating for conductivity, adhesion, and lightweight protection.</span>
+                        </div>
+                        <div class="story-spec">
+                            <span class="story-spec-title">Passivation</span>
+                            <span class="story-spec-copy">Stainless surface treatment that restores corrosion resistance on critical hardware.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-media reveal">
+                    <img src="assets/facility-hero.jpg" alt="Aerial view of the Norris Precision facility for metal finishing operations">
+                    <div class="story-media-note">
+                        <span>New finishing expansion</span>
+                        <p>Facility growth focused on better flow, better control, and faster turnaround.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-band">
+            <div class="process-band-inner">
+                <div class="process-intro reveal">
+                    <p class="eyebrow">Core Processes</p>
+                    <h2>Built for parts that need protection without compromise.</h2>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-panel reveal">
+                        <span class="process-number">01</span>
                         <h3>Anodizing</h3>
-                        <p>Our chromic and sulfuric anodize services provide superior corrosion protection and surface hardening while maintaining tight dimensional tolerances.</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="../assets/anodizing.jpg" alt="Anodizing Process">
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-content">
-                        <div class="step-number">02</div>
+                        <p>Chromic and sulfuric anodize options for aluminum components requiring corrosion resistance and surface durability.</p>
+                    </article>
+                    <article class="process-panel reveal">
+                        <span class="process-number">02</span>
                         <h3>Chemical Film</h3>
-                        <p>Chemical film treatments (Chem-Film) offer excellent corrosion protection and electrical conductivity for aluminum parts while adding minimal weight.</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="../assets/chemical_film.jpg" alt="Chemical Film Process">
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-content">
-                        <div class="step-number">03</div>
+                        <p>Conversion coatings that preserve conductivity while preparing parts for downstream assembly or paint systems.</p>
+                    </article>
+                    <article class="process-panel reveal">
+                        <span class="process-number">03</span>
                         <h3>Passivation</h3>
-                        <p>Our passivation process removes free iron from the surface of stainless steel parts, enhancing corrosion resistance and restoring the inherent corrosion resistance.</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="../assets/passivation.jpg" alt="Passivation Process">
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-content">
-                        <div class="step-number">04</div>
-                        <h3>Quality Control</h3>
-                        <p>Comprehensive testing and inspection ensures all finished parts meet or exceed customer specifications and industry standards.</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="../assets/quality_control.jpg" alt="Quality Control Process">
-                    </div>
+                        <p>Controlled treatment for stainless components where corrosion resistance and process repeatability matter.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Specifications Section -->
-    <section class="specs-section">
-        <div class="specs-container">
-            <div class="specs-header">
-                <h2>Our Finishing Process</h2>
-                <p>At Norris Precision Mfg., we maintain complete control over the finishing process, ensuring quality and precision with every part. Our in-house capabilities allow us to manage turnaround times efficiently while maintaining strict quality standards.</p>
+        <section class="specs-section section-block" id="specifications">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Processing Specifications</p>
+                <h2>Cleaned up by process so customers can scan the exact standards quickly.</h2>
             </div>
 
             <div class="specs-grid">
-                <div class="spec-card">
-                    <h3>Anodizing Specifications</h3>
-                    <div class="spec-details">
-                        <ul>
-                            <li>MIL-A-8625 Type I (Chromic)</li>
-                            <li>MIL-A-8625 Type II (Sulfuric)</li>
-                            <li>MIL-A-8625 Type III (Hard)</li>
-                            <li>Custom color options</li>
-                        </ul>
+                <article class="specs-panel reveal">
+                    <div class="specs-panel-header">
+                        <p class="eyebrow">Anodize</p>
+                        <h3>Aluminum anodic coatings</h3>
+                    </div>
+                    <ul class="spec-list">
+                        <li>MIL-A-8625 Anodic Coatings for Aluminum and Aluminum Alloys, Types I, II, III</li>
+                        <li>MIL-PRF-8625 Anodic Coatings for Aluminum and Aluminum Alloys</li>
+                        <li>AMS 2470 Anodic Treatment of Aluminum Alloys, Chromic Acid Process</li>
+                        <li>AMS 2471 Anodic Treatment of Aluminum Alloys, Sulfuric Acid Process, Un-dyed Coatings</li>
+                        <li>AMS 2472 Anodic Treatment of Aluminum Alloys, Sulfuric Acid Process, Dyed Coatings</li>
+                        <li>FI-1658 Enhanced Chromic Acid Anodize Process</li>
+                        <li>CPS 1000 Anodizing Aluminum Alloys</li>
+                        <li>HS-334 Anodic Coatings for Aluminum and Aluminum Alloys</li>
+                        <li>ES-1983 Controlled Thickness Sulfuric Acid Anodize</li>
+                        <li>FI-1153 Sulfuric Acid Anodizing of Aluminum Alloys</li>
+                    </ul>
+                    <div class="spec-seal-group">
+                        <span class="spec-seal-title">Seal options</span>
+                        <div class="seal-tags">
+                            <span>Nickel Acetate</span>
+                            <span>Sodium Dichromate</span>
+                            <span>Hot DI-Water</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="specs-panel reveal">
+                    <div class="specs-panel-header">
+                        <p class="eyebrow">Chromate Conversion</p>
+                        <h3>Chemical conversion coatings</h3>
+                    </div>
+                    <ul class="spec-list">
+                        <li>MIL-C-5541 Chemical Conversion Coatings on Aluminum and Aluminum Alloys</li>
+                        <li>MIL-DTL-5541 Chemical Conversion Coatings on Aluminum and Aluminum Alloys, Types I and II</li>
+                        <li>AMS 2473 Chemical Film Treatment for Aluminum Alloys, General Purpose Coating</li>
+                        <li>HS-240 Chemical Films for Aluminum and Aluminum Alloys</li>
+                        <li>PN 14.12 Chemical Film Coating on Aluminum, Magnesium and Their Alloys</li>
+                        <li>ES-0598 Chemical Treatment for Aluminum and Aluminum Alloys</li>
+                    </ul>
+                </article>
+
+                <article class="specs-panel reveal">
+                    <div class="specs-panel-header">
+                        <p class="eyebrow">Passivate</p>
+                        <h3>Corrosion-resistant steels</h3>
+                    </div>
+                    <ul class="spec-list">
+                        <li>AMS-QQ-P-35 Passivation Treatment for Corrosion Resistant Steel</li>
+                        <li>AMS 2700 Passivation of Corrosion Resistant Steels</li>
+                        <li>ASTM A967/A967M Standard Specification for Chemical Passivation Treatments for Stainless Steel Parts</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="showcase-section section-block">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Facility Showcase</p>
+                <h2>Inside the growing footprint behind Norris metal finishing.</h2>
+            </div>
+
+            <div class="showcase-layout">
+                <figure class="showcase-primary reveal">
+                    <img src="assets/facility-detail-1.jpg" alt="Norris facility exterior view">
+                </figure>
+                <div class="showcase-side">
+                    <div class="showcase-copy-block reveal">
+                        <p class="eyebrow">Clearwater, Florida</p>
+                        <h3>Facility growth built around cleaner flow from machining to finishing.</h3>
+                        <p>
+                            The expanded footprint gives Norris more room to route work efficiently, protect parts during handling,
+                            and keep turnaround moving without giving up process control.
+                        </p>
+                    </div>
+                    <div class="showcase-pair">
+                        <figure class="showcase-feature reveal">
+                            <img src="assets/facility-detail-2.jpg" alt="Expanded Norris manufacturing campus">
+                        </figure>
+                        <figure class="showcase-feature reveal">
+                            <img src="assets/facility-detail-3.jpg" alt="Aerial detail of Norris facility grounds">
+                        </figure>
                     </div>
                 </div>
-                
-                <div class="spec-card">
-                    <h3>Chemical Film</h3>
-                    <div class="spec-details">
-                        <ul>
-                            <li>AMS-C-5541</li>
-                            <li>Clear and yellow options</li>
-                            <li>RoHS compliant alternatives</li>
-                            <li>Electrical conductivity maintained</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="spec-card">
-                    <h3>Passivation</h3>
-                    <div class="spec-details">
-                        <ul>
-                            <li>ASTM A967</li>
-                            <li>AMS 2700</li>
-                            <li>Nitric acid process</li>
-                            <li>Citric acid process</li>
-                        </ul>
-                    </div>
+                <div class="showcase-strip">
+                    <figure class="showcase-feature reveal">
+                        <img src="assets/facility-detail-4.jpg" alt="Norris manufacturing property aerial photo">
+                    </figure>
+                    <figure class="showcase-feature reveal">
+                        <img src="assets/facility-detail-5.jpg" alt="Norris campus alternate aerial view">
+                    </figure>
+                    <figure class="showcase-feature reveal">
+                        <img src="assets/facility-detail-6.jpg" alt="Norris facility and surrounding grounds">
+                    </figure>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Benefits of Our Metal Finishing</h2>
-                <p>Discover why our metal finishing processes are the choice of leading aerospace, defense, and high-performance industries.</p>
-            </div>
+        <section class="value-section">
+            <div class="value-shell">
+                <div class="value-copy reveal">
+                    <p class="eyebrow">Why It Matters</p>
+                    <h2>Finishing is part of the production system, not a handoff after the fact.</h2>
+                </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                <div class="value-grid">
+                    <div class="value-item reveal">
                         <i class="fas fa-shield-alt"></i>
+                        <h3>Controlled Quality</h3>
+                        <p>Surface treatment remains tied to the same quality culture governing machining and final inspection.</p>
                     </div>
-                    <h3>Superior Protection</h3>
-                    <p>Enhanced corrosion resistance for extended component life in demanding environments.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-clock"></i>
+                    <div class="value-item reveal">
+                        <i class="fas fa-stopwatch"></i>
+                        <h3>Shorter Lead Times</h3>
+                        <p>In-house finishing removes outsourced queue time and simplifies the route from production to shipment.</p>
                     </div>
-                    <h3>Reduced Lead Times</h3>
-                    <p>In-house capabilities eliminate outsourcing delays and expedite your production schedule.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3>Certified Quality</h3>
-                    <p>Nadcap certified processes ensure consistent, reliable results that meet strict industry standards.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Precision Control</h3>
-                    <p>Tight dimensional tolerance control maintains the critical specifications of your components.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects/Gallery Section -->
-    <section class="projects-section">
-        <div class="projects-container">
-            <div class="projects-header">
-                <h2>Featured Projects</h2>
-                <p>Browse examples of our metal finishing expertise applied to various industries and applications.</p>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="../assets/project1.jpg" alt="Aerospace Components" class="project-image">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Aerospace Components</h3>
-                        <p class="project-desc">Type II anodized structural components for commercial aircraft.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="../assets/project2.jpg" alt="Defense Applications" class="project-image">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Defense Applications</h3>
-                        <p class="project-desc">Chemical film treated housings for military electronics systems.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="../assets/project3.jpg" alt="Medical Devices" class="project-image">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Medical Devices</h3>
-                        <p class="project-desc">Passivated stainless steel components for surgical instruments.</p>
+                    <div class="value-item reveal">
+                        <i class="fas fa-ruler-combined"></i>
+                        <h3>Better Part Protection</h3>
+                        <p>Process ownership helps preserve fit, finish, and dimensional intent on complex hardware.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <section class="quote-section section-block" id="quote-form">
+            <div class="quote-shell">
+                <div class="quote-intro reveal">
+                    <p class="eyebrow">Request a Quote</p>
+                    <h2>Tell us about your project and our team will follow up.</h2>
+                    <p>
+                        Share the part type, process needed, material, quantity, and timing. The more detail you include,
+                        the faster the team can review your request.
+                    </p>
+                </div>
 
+                <form
+                    class="quote-form reveal"
+                    id="metal-quote-form"
+                    novalidate
+                    data-resend-endpoint="/api/contact-quote"
+                    data-form-source="metal-finishing-page"
+                >
+                    <div class="form-grid">
+                        <label class="form-field">
+                            <span>Full Name</span>
+                            <input type="text" name="name" maxlength="80" autocomplete="name" required>
+                        </label>
+                        <label class="form-field">
+                            <span>Company</span>
+                            <input type="text" name="company" maxlength="100" autocomplete="organization" required>
+                        </label>
+                        <label class="form-field">
+                            <span>Email</span>
+                            <input type="email" name="email" maxlength="120" autocomplete="email" required>
+                        </label>
+                        <label class="form-field">
+                            <span>Phone</span>
+                            <input type="tel" name="phone" maxlength="25" autocomplete="tel">
+                        </label>
+                    </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications-section">
-        <div class="certifications-title">Industry Certifications</div>
-        <p class="certifications-subtitle">Our metal finishing processes are backed by leading industry certifications, ensuring the highest quality standards for your critical components.</p>
-        <div class="certifications-grid">
-            <div class="certification-item">
-                <h3>Nadcap</h3>
-                <p>Chemical Processing</p>
+                    <fieldset class="form-fieldset">
+                        <legend>Processes Needed</legend>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="processes" value="Anodize"> <span>Anodize</span></label>
+                            <label><input type="checkbox" name="processes" value="Chromate Conversion"> <span>Chromate Conversion</span></label>
+                            <label><input type="checkbox" name="processes" value="Passivate"> <span>Passivate</span></label>
+                        </div>
+                    </fieldset>
+
+                    <label class="form-field">
+                        <span>Relevant Specification</span>
+                        <input
+                            type="text"
+                            name="specification"
+                            maxlength="180"
+                            placeholder="Example: MIL-PRF-8625 Type II"
+                        >
+                    </label>
+
+                    <label class="form-field">
+                        <span>Project Details</span>
+                        <textarea
+                            name="details"
+                            rows="6"
+                            maxlength="1400"
+                            placeholder="Part type, quantity, material, timing, and anything the team should review."
+                            required
+                        ></textarea>
+                    </label>
+
+                    <div class="form-honeypot" aria-hidden="true">
+                        <label for="metal-website">Website</label>
+                        <input
+                            id="metal-website"
+                            type="text"
+                            name="website"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <input type="hidden" name="submitted_at" id="submitted-at">
+
+                    <div class="form-footer">
+                        <p class="form-note">Include part type, quantity, material, and target timing so we can respond faster.</p>
+                        <button type="submit" class="cta-btn">Send Inquiry</button>
+                    </div>
+
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
-            <div class="certification-item">
-                <h3>AS9100</h3>
-                <p>Quality Management</p>
+        </section>
+
+        <section class="metal-cta">
+            <div class="metal-cta-shell reveal">
+                <p class="eyebrow">Start The Conversation</p>
+                <h2>Planning a part that needs machining and finishing under one roof?</h2>
+                <p>Talk with Norris Precision about the process path, certification requirements, and target delivery window.</p>
+                <div class="metal-hero-actions">
+                    <a href="#quote-form" class="cta-btn">Start Your Inquiry</a>
+                    <a href="../capabilities/manufacturing.html" class="cta-btn outline">Back to Manufacturing</a>
+                </div>
             </div>
-            <div class="certification-item">
-                <h3>ISO 9001</h3>
-                <p>Quality Systems</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Enhance Your Parts?</h2>
-            <p>Contact our team to discuss your metal finishing requirements and discover how our in-house capabilities can reduce lead times and improve quality.</p>
-            <a href="/contact" class="cta-btn">Request a Quote</a>
-        </div>
-    </section>
-
-    <!-- Footer would be here -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="../footer/footer.js"></script>
+    <script src="../script.js" defer></script>
+    <script src="../contact/contact.js" defer></script>
+    <script src="metal.js" defer></script>
 </body>
 </html>

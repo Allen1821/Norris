@@ -92,6 +92,95 @@
       </div>
     </section>
 
+    <section class="quote-section">
+      <div class="container quote-shell">
+        <div class="quote-intro">
+          <p class="quote-eyebrow">Request a Quote</p>
+          <h2>Tell us about your project and our team will follow up.</h2>
+          <p>
+            Share the part type, process needed, material, quantity, and timing. The more detail you include,
+            the faster the team can review your request.
+          </p>
+        </div>
+
+        <form
+          class="quote-form"
+          novalidate
+          data-resend-endpoint="/api/contact-quote"
+          data-form-source="contact-page"
+        >
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Full Name</span>
+              <input type="text" name="name" maxlength="80" autocomplete="name" required>
+            </label>
+            <label class="form-field">
+              <span>Company</span>
+              <input type="text" name="company" maxlength="100" autocomplete="organization" required>
+            </label>
+            <label class="form-field">
+              <span>Email</span>
+              <input type="email" name="email" maxlength="120" autocomplete="email" required>
+            </label>
+            <label class="form-field">
+              <span>Phone</span>
+              <input type="tel" name="phone" maxlength="25" autocomplete="tel">
+            </label>
+          </div>
+
+          <fieldset class="form-fieldset">
+            <legend>Processes Needed</legend>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="processes" value="Anodize"> <span>Anodize</span></label>
+              <label><input type="checkbox" name="processes" value="Chromate Conversion"> <span>Chromate Conversion</span></label>
+              <label><input type="checkbox" name="processes" value="Passivate"> <span>Passivate</span></label>
+            </div>
+          </fieldset>
+
+          <label class="form-field">
+            <span>Relevant Specification</span>
+            <input
+              type="text"
+              name="specification"
+              maxlength="180"
+              placeholder="Example: MIL-PRF-8625 Type II"
+            >
+          </label>
+
+          <label class="form-field">
+            <span>Project Details</span>
+            <textarea
+              name="details"
+              rows="6"
+              maxlength="1400"
+              placeholder="Part type, quantity, material, timing, and anything the team should review."
+              required
+            ></textarea>
+          </label>
+
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input
+              id="contact-website"
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            >
+          </div>
+
+          <input type="hidden" name="submitted_at" value="">
+
+          <div class="form-footer">
+            <p class="form-note">Include part type, quantity, material, and target timing so we can respond faster.</p>
+            <button type="submit" class="cta-btn">Send Inquiry</button>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- Map Section -->
     <section class="map-section">
       <div class="container">
@@ -117,5 +206,6 @@
     
   <!-- Script -->
   <script src="../script.js" defer></script>
+  <script src="contact.js" defer></script>
 </body>
 </html>
