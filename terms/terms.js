@@ -55,16 +55,27 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Show PDF directly in iframe (for desktop)
   function showPdfInIframe(pdfUrl) {
-    const absoluteUrl = getAbsoluteUrl(pdfUrl);
+    const safeUrl = getSafePdfUrl(pdfUrl);
     
     // Hide the PDF.js canvas if it exists
     if (canvas) {
       canvas.style.display = 'none';
     }
     
+    // If the URL is not considered safe, fall back to the PDF fallback view
+    if (!safeUrl) {
+      termsFrame.style.display = 'none';
+      pdfLoading.style.display = 'none';
+      const fallbackEl = document.querySelector('.pdf-fallback');
+      if (fallbackEl) {
+        fallbackEl.style.display = 'flex';
+      }
+      return;
+    }
+    
     // Show the iframe
     termsFrame.style.display = 'block';
-    termsFrame.src = absoluteUrl;
+    termsFrame.src = safeUrl;
     
     // Hide loading spinner after a short delay
     setTimeout(() => {
@@ -204,6 +215,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const a = document.createElement('a');
     a.href = url;
     return a.href;
+  }
+
+  // Validate and normalize a PDF URL before using it as an iframe src
+  function getSafePdfUrl(url) {
+    try {
+      const absoluteUrl = getAbsoluteUrl(url);
+      const parsed = new URL(absoluteUrl, window.location.href);
+      
+      // Only allow http(s) URLs
+      if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+        return null;
+      }
+      
+      // Enforce same-origin to avoid loading arbitrary third-party content
+      if (parsed.origin !== window.location.origin) {
+        return null;
+      }
+      
+      return parsed.href;
+    } catch (e) {
+      // Malformed URL
+      return null;
+    }
   }
   
   // Function to handle hash-based navigation
