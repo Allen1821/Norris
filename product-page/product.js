@@ -3,6 +3,25 @@ let imgUrl;
 let fullSizeImageOpen = false;
 let isMobile = window.innerWidth <= 768;
 
+function sanitizeImageUrl(url) {
+  if (!url) {
+    return '';
+  }
+
+  try {
+    const parsed = new URL(url, window.location.href);
+    const protocol = parsed.protocol.toLowerCase();
+
+    if (protocol === 'http:' || protocol === 'https:') {
+      return parsed.toString();
+    }
+  } catch (e) {
+    // If URL construction fails, fall through to return empty string
+  }
+
+  return '';
+}
+
 // Check for mobile device on resize
 window.addEventListener('resize', function() {
   isMobile = window.innerWidth <= 768;
@@ -18,7 +37,7 @@ function showFullSizeImage(event) {
   
   // Get the high-resolution URL from data-hires; fallback to thumbnail src if not provided
   const highResUrl = clickedImg.getAttribute('data-hires') || clickedImg.src;
-  imgUrl = highResUrl;
+  imgUrl = sanitizeImageUrl(highResUrl);
   
   const fullSizeImage = document.getElementById('fullSizeImage');
   fullSizeImage.src = imgUrl;
@@ -31,7 +50,7 @@ function showFullSizeImage(event) {
   
   // Build the images array for navigation
   images = Array.from(document.querySelectorAll('.galleryImg')).map(item =>
-    item.getAttribute('data-hires') || item.src
+    sanitizeImageUrl(item.getAttribute('data-hires') || item.src)
   );
   
   fullSizeImageOpen = true;
