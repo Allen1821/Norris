@@ -130,7 +130,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!response.ok) {
-          throw new Error("Request failed");
+          let errorMessage = "Inquiry could not be sent. Please try again or contact Norris Precision directly.";
+
+          try {
+            const responseBody = await response.json();
+            if (responseBody && responseBody.error) {
+              errorMessage = responseBody.error;
+            }
+          } catch {
+            // Keep the default message when the server does not return JSON.
+          }
+
+          throw new Error(errorMessage);
         }
 
         localStorage.setItem(storageKey, String(Date.now()));
@@ -138,7 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
         submittedAtField.value = String(Date.now());
         setStatus("Inquiry sent. Norris Precision will review your request.", "success");
       } catch (error) {
-        setStatus("", "error");
+        const message = error instanceof TypeError
+          ? "Inquiry could not be sent. Make sure the local Norris server is running."
+          : error.message || "Inquiry could not be sent. Please try again.";
+        setStatus(message, "error");
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
