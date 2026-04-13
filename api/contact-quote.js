@@ -137,7 +137,7 @@ function buildEmailHtml(sanitized, processList) {
                   <td style="background:#0a192f; padding:28px 32px; border-bottom:4px solid #3282b8;">
                     <p style="margin:0 0 10px; font-size:12px; line-height:1.4; letter-spacing:2px; text-transform:uppercase; color:#8fc7eb; font-weight:700;">Norris Precision Mfg.</p>
                     <h1 style="margin:0; font-size:28px; line-height:1.15; color:#ffffff; font-weight:700;">New Quote Request</h1>
-                    <p style="margin:12px 0 0; font-size:15px; line-height:1.6; color:#d8e6ef;">A website inquiry is ready for review by the Norris team.</p>
+                    <p style="margin:12px 0 0; font-size:15px; line-height:1.6; color:#d8e6ef;"></p>
                   </td>
                 </tr>
 
