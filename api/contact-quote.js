@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
   const RESEND_FROM = process.env.RESEND_FROM || "";
-  const CONTACT_FORM_TO = process.env.CONTACT_FORM_TO || "";
+  const CONTACT_FORM_TO = process.env.CONTACT_FORM_TO || "info@norrisprecision.com";
   const CONTACT_FORM_SUBJECT = process.env.CONTACT_FORM_SUBJECT || "Norris Precision Quote Request";
 
   if (!RESEND_API_KEY || !RESEND_FROM || !CONTACT_FORM_TO) {
