@@ -783,6 +783,103 @@ body {
   transform: scale(1.04);
 }
 
+.story-media.is-zoomable,
+.showcase-primary.is-zoomable,
+.showcase-feature.is-zoomable {
+  cursor: zoom-in;
+}
+
+.story-media.is-zoomable img,
+.showcase-primary.is-zoomable img,
+.showcase-feature.is-zoomable img {
+  cursor: zoom-in;
+}
+
+.metal-image-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(6, 16, 29, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+.metal-image-viewer.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.metal-image-viewer[hidden] {
+  display: none;
+}
+
+.metal-image-viewer-open {
+  overflow: hidden;
+}
+
+.metal-image-viewer-frame {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  width: min(1120px, 100%);
+  max-height: 88vh;
+  margin: 0;
+  transform: scale(0.98);
+  transition: transform 0.18s ease;
+}
+
+.metal-image-viewer.is-open .metal-image-viewer-frame {
+  transform: scale(1);
+}
+
+.metal-image-viewer-frame img {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #0a192f;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
+}
+
+.metal-image-viewer-frame figcaption {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.metal-image-viewer-close {
+  position: fixed;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.metal-image-viewer-close:hover,
+.metal-image-viewer-close:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.06);
+  outline: none;
+}
+
 .hero-rail-item:hover,
 .proof-item:hover,
 .process-panel:hover,
