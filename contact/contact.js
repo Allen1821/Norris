@@ -112,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
         specification,
         details,
         processes,
-        source: formSource
+        source: formSource,
+        website,
+        submitted_at: startedAt
       };
 
       if (submitButton) {

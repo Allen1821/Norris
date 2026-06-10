@@ -1,15 +1,37 @@
 const BLOCKED_URL_PATTERN =
   /(?:https?:\/\/|www\.|(?:^|\s)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.(?:com|net|org|io|co|us|biz|info|gov|edu|me|ai|ly)\b)/i;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ALLOWED_ORIGINS = new Set([
+  "https://www.norrisprecision.com",
+  "https://norrisprecision.com",
+  "http://localhost:8787"
+]);
+const MIN_SUBMIT_TIME_MS = 5000;
+const MAX_SUBMIT_AGE_MS = 60 * 60 * 1000;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_SUBMISSIONS = 5;
+
+const rateLimitStore = globalThis.__norrisContactRateLimit || new Map();
+globalThis.__norrisContactRateLimit = rateLimitStore;
 
 module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") {
-    sendJson(res, 204, null);
+    if (!isAllowedOrigin(req.headers.origin)) {
+      sendJson(req, res, 403, { error: "Origin not allowed" });
+      return;
+    }
+
+    sendJson(req, res, 204, null);
     return;
   }
 
   if (req.method !== "POST") {
-    sendJson(res, 405, { error: "Method not allowed" });
+    sendJson(req, res, 405, { error: "Method not allowed" });
+    return;
+  }
+
+  if (!isAllowedOrigin(req.headers.origin)) {
+    sendJson(req, res, 403, { error: "Origin not allowed" });
     return;
   }
 
@@ -19,7 +41,7 @@ module.exports = async function handler(req, res) {
   const CONTACT_FORM_SUBJECT = process.env.CONTACT_FORM_SUBJECT || "Norris Precision Quote Request";
 
   if (!RESEND_API_KEY || !RESEND_FROM || !CONTACT_FORM_TO) {
-    sendJson(res, 500, { error: "Missing email configuration" });
+    sendJson(req, res, 500, { error: "Missing email configuration" });
     return;
   }
 
@@ -28,7 +50,21 @@ module.exports = async function handler(req, res) {
   try {
     payload = await readPayload(req);
   } catch {
-    sendJson(res, 400, { error: "Invalid JSON" });
+    sendJson(req, res, 400, { error: "Invalid JSON" });
+    return;
+  }
+
+  const website = sanitizeText(payload.website);
+  const submittedAt = Number(payload.submitted_at || 0);
+  const now = Date.now();
+
+  if (website) {
+    sendJson(req, res, 400, { error: "Submission blocked" });
+    return;
+  }
+
+  if (!Number.isFinite(submittedAt) || now - submittedAt < MIN_SUBMIT_TIME_MS || now - submittedAt > MAX_SUBMIT_AGE_MS) {
+    sendJson(req, res, 400, { error: "Invalid submission timing" });
     return;
   }
 
@@ -46,17 +82,17 @@ module.exports = async function handler(req, res) {
   };
 
   if (!sanitized.name || !sanitized.company || !sanitized.email || !sanitized.details) {
-    sendJson(res, 400, { error: "Missing required fields" });
+    sendJson(req, res, 400, { error: "Missing required fields" });
     return;
   }
 
   if (!EMAIL_PATTERN.test(sanitized.email)) {
-    sendJson(res, 400, { error: "Invalid email" });
+    sendJson(req, res, 400, { error: "Invalid email" });
     return;
   }
 
   if (sanitized.processes.length === 0) {
-    sendJson(res, 400, { error: "Select at least one process" });
+    sendJson(req, res, 400, { error: "Select at least one process" });
     return;
   }
 
@@ -69,7 +105,12 @@ module.exports = async function handler(req, res) {
   ];
 
   if (textFields.some((value) => BLOCKED_URL_PATTERN.test(value))) {
-    sendJson(res, 400, { error: "Links are not allowed" });
+    sendJson(req, res, 400, { error: "Links are not allowed" });
+    return;
+  }
+
+  if (isRateLimited(getClientIp(req), now)) {
+    sendJson(req, res, 429, { error: "Too many requests. Please wait before sending another inquiry." });
     return;
   }
 
@@ -108,11 +149,11 @@ module.exports = async function handler(req, res) {
   if (!resendResponse.ok) {
     const errorText = await resendResponse.text();
     console.error("Resend error:", errorText);
-    sendJson(res, 502, { error: "Email delivery failed" });
+    sendJson(req, res, 502, { error: "Email delivery failed" });
     return;
   }
 
-  sendJson(res, 200, { ok: true });
+  sendJson(req, res, 200, { ok: true });
 };
 
 function buildEmailHtml(sanitized, processList) {
@@ -157,7 +198,7 @@ function buildEmailHtml(sanitized, processList) {
                       <tr>
                         <td width="50%" style="padding:0 12px 16px 0; vertical-align:top;">
                           <p style="margin:0 0 6px; font-size:11px; line-height:1.4; letter-spacing:1.4px; text-transform:uppercase; color:#64798c; font-weight:700;">Email</p>
-                          <p style="margin:0; font-size:15px; line-height:1.5; color:#0f4c75;"><a href="mailto:${escapedEmail}" style="color:#0f4c75; text-decoration:none;">${escapedEmail}</a></p>
+                          <p style="margin:0; font-size:15px; line-height:1.5; color:#0f4c75;">${escapedEmail}</p>
                         </td>
                         <td width="50%" style="padding:0 0 16px 12px; vertical-align:top;">
                           <p style="margin:0 0 6px; font-size:11px; line-height:1.4; letter-spacing:1.4px; text-transform:uppercase; color:#64798c; font-weight:700;">Phone</p>
@@ -221,9 +262,9 @@ async function readPayload(req) {
   return JSON.parse(rawBody);
 }
 
-function sendJson(res, statusCode, payload) {
+function sendJson(req, res, statusCode, payload) {
   res.statusCode = statusCode;
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  setCorsHeaders(req, res);
   res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -234,6 +275,42 @@ function sendJson(res, statusCode, payload) {
   }
 
   res.end(JSON.stringify(payload));
+}
+
+function setCorsHeaders(req, res) {
+  const origin = req.headers.origin;
+
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+}
+
+function isAllowedOrigin(origin) {
+  return !origin || ALLOWED_ORIGINS.has(origin);
+}
+
+function getClientIp(req) {
+  const forwardedFor = req.headers["x-forwarded-for"];
+
+  if (typeof forwardedFor === "string" && forwardedFor.trim()) {
+    return forwardedFor.split(",")[0].trim();
+  }
+
+  return req.socket?.remoteAddress || "unknown";
+}
+
+function isRateLimited(clientIp, now) {
+  const recentRequests = (rateLimitStore.get(clientIp) || []).filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+
+  if (recentRequests.length >= RATE_LIMIT_MAX_SUBMISSIONS) {
+    rateLimitStore.set(clientIp, recentRequests);
+    return true;
+  }
+
+  recentRequests.push(now);
+  rateLimitStore.set(clientIp, recentRequests);
+  return false;
 }
 
 function sanitizeText(value) {
