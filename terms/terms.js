@@ -274,6 +274,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (qualityItem) {
         qualityItem.click();
       }
+    } else if (hash === '#metal-finishing' || hash === '#metal-finishing-terms-item') {
+      const metalFinishingItem = document.getElementById('metal-finishing-terms-item');
+      if (metalFinishingItem) {
+        metalFinishingItem.click();
+      }
     } else {
       // Default to terms and conditions - but also load the PDF
       const termsItem = document.getElementById('terms-conditions-item');
